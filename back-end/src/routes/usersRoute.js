@@ -4,7 +4,7 @@ const userController = require('../controllers/usersController');
 const usersRoutes = Router();
 
 // criar novo usuario
-usersRoutes.post('/user', userController);
+usersRoutes.post('/user', userController.create);
 
 // // buscar usuario pelo id
 // usersRoutes.get('/user/:id', userController);
@@ -19,6 +19,6 @@ usersRoutes.post('/user', userController);
 // usersRoutes.delete('/user/:id', userController);
 
 // login
-usersRoutes.post('/login', userController);
+// usersRoutes.post('/login', userController);
 
 module.exports = usersRoutes;
