@@ -6,17 +6,17 @@ const usersRoutes = Router();
 // criar novo usuario
 usersRoutes.post('/user', userController);
 
-// buscar usuario pelo id
-usersRoutes.get('/user/:id', userController);
+// // buscar usuario pelo id
+// usersRoutes.get('/user/:id', userController);
 
-// buscar todos usuarios
-usersRoutes.get('/user', userController);
+// // buscar todos usuarios
+// usersRoutes.get('/user', userController);
 
-//  atualizar usuario
-usersRoutes.put('/user/:id', userController);
+// //  atualizar usuario
+// usersRoutes.put('/user/:id', userController);
 
-// deletar usuario
-usersRoutes.delete('/user/:id', userController);
+// // deletar usuario
+// usersRoutes.delete('/user/:id', userController);
 
 // login
 usersRoutes.post('/login', userController);
