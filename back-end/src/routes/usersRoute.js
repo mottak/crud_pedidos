@@ -1,10 +1,11 @@
 const { Router } = require('express');
 const userController = require('../controllers/usersController');
+const auth = require('../middlewares/userAuth');
 
 const usersRoutes = Router();
 
 // criar novo usuario
-usersRoutes.post('/user', userController.create);
+usersRoutes.post('/user', auth.newUserAuth, userController.create);
 
 // // buscar usuario pelo id
 // usersRoutes.get('/user/:id', userController);
