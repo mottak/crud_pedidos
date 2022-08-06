@@ -1,8 +1,19 @@
 const userModel = require('../models/usersModel');
 
 const create = async (userData) => {
-  const newUser = await userModel.create(userData);
-  if (newUser) return newUser;
+  const {
+    name, email, password, role,
+  } = userData;
+  const newUser = await userModel.create(name, email, password, role);
+  if (newUser) {
+    const { insertId } = newUser;
+    return {
+      id: insertId,
+      name,
+      email,
+      role,
+    };
+  }
   return false;
 };
 
