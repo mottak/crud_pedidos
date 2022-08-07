@@ -21,6 +21,7 @@ const newUserAuth = (req: Request, res: Response, next: NextFunction) => {
   if (error) {
     next({ status: 400, message: error.details[0].message });
   }
+  next();
 };
 
 export default { newUserAuth };

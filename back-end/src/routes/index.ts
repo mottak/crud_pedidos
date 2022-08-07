@@ -4,7 +4,7 @@ import userRoute from './usersRoute';
 
 const route = Router();
 
-route.use('/users', userRoute);
+route.use('/user', userRoute);
 
 
 export default route;
