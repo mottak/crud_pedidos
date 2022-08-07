@@ -19,7 +19,4 @@ usersRoutes.post('/', auth.newUserAuth, userController.create);
 // // deletar usuario
 // usersRoutes.delete('/user/:id', userController);
 
-// login
-// usersRoutes.post('/login', userController);
-
 export default usersRoutes

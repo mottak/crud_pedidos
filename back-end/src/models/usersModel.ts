@@ -1,6 +1,6 @@
 import connection from '../database/connection';
 import query from '../database/queries/users'
-import { INewUser } from '../interfaces'
+import { INewUser, ILogin } from '../interfaces'
 import { v4 as uuidv4 } from 'uuid'
 import { RowDataPacket } from 'mysql2';
 
@@ -19,5 +19,10 @@ const findByEmail = async (userData: INewUser): Promise<RowDataPacket | undefine
   const [[userId]] = await connection.execute<RowDataPacket[]>(query.findUserByEmail, [email]);
   return userId;
 }
+const login = async (loginData: ILogin): Promise<RowDataPacket | undefined> => {
+  const { email, password } = loginData;
+  const [[userId]] = await connection.execute<RowDataPacket[]>(query.login, [email, password]);
+  return userId;
+}
 
-export default { create, findByEmail };
+export default { create, findByEmail, login };

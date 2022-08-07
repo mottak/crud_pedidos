@@ -1,5 +1,5 @@
 import userModel from '../models/usersModel';
-import { INewUser, IUser } from '../interfaces'
+import { INewUser, IUser, ILogin, IPayload } from '../interfaces'
 
 const create = async (userData: INewUser): Promise<IUser | false | string> => {
 
@@ -20,6 +20,13 @@ const create = async (userData: INewUser): Promise<IUser | false | string> => {
   return false;
 };
 
+const login = async (loginData: ILogin): Promise<IPayload | string> => {
+  const validLogin = await userModel.login(loginData);
+  if (validLogin) {
+    return validLogin as IPayload;
+  }
+  return 'Email ou senha inválidos'
+}
 
 
-export default { create };
+export default { create, login };

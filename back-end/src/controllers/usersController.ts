@@ -16,4 +16,17 @@ const create = async (req: Request, res: Response): Promise<typeof res> => {
   return res.status(101).json({ message: 'Não conseguimos criar esse usuario' });
 };
 
-export default { create };
+
+const login = async (req: Request, res: Response) => {
+  const loginData = req.body;
+  const login = await userService.login(loginData);
+  if (typeof login === 'string') {
+    return res.status(400).json({ message: login });
+  }
+  if (login) {
+    const token = auth.createToken(login)
+    return res.status(200).json({ message: 'login realizado com sucesso', token });
+  }
+}
+
+export default { create, login };
