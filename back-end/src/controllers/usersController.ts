@@ -5,6 +5,9 @@ import auth from '../utils/token'
 const create = async (req: Request, res: Response): Promise<typeof res> => {
   const userData = req.body;
   const newUser = await userService.create(userData);
+  if (typeof newUser === 'string') {
+    return res.status(400).json({ message: newUser });
+  }
   if (newUser) {
     const { id, name, email, role } = newUser
     const token = auth.createToken({ id, name, email, role })

@@ -2,6 +2,7 @@ import connection from '../database/connection';
 import query from '../database/queries/users'
 import { INewUser } from '../interfaces'
 import { v4 as uuidv4 } from 'uuid'
+import { RowDataPacket } from 'mysql2';
 
 const create = async (userData: INewUser): Promise<string | null> => {
   const {
@@ -13,4 +14,10 @@ const create = async (userData: INewUser): Promise<string | null> => {
   return newUser;
 };
 
-export default { create };
+const findByEmail = async (userData: INewUser): Promise<RowDataPacket | undefined> => {
+  const { email } = userData;
+  const [[userId]] = await connection.execute<RowDataPacket[]>(query.findUserByEmail, [email]);
+  return userId;
+}
+
+export default { create, findByEmail };
