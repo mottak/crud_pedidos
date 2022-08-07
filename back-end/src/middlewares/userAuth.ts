@@ -1,4 +1,5 @@
-const Joi = require('joi');
+import { Request, Response, NextFunction } from 'express'
+import Joi from 'joi';
 
 const userSchema = Joi.object({
   name: Joi.string()
@@ -10,11 +11,11 @@ const userSchema = Joi.object({
   password: Joi.string()
     .min(6)
     .required(),
-  role: Joi.string('client' || 'seller' || 'admin')
+  role: Joi.string().valid('client', 'seller', 'admin')
     .required(),
 });
 
-const newUserAuth = (req, res, next) => {
+const newUserAuth = (req: Request, res: Response, next: NextFunction) => {
   const { body } = req;
   const { error } = userSchema.validate(body);
   if (error) {
@@ -22,4 +23,4 @@ const newUserAuth = (req, res, next) => {
   }
 };
 
-module.exports = { newUserAuth };
+export default { newUserAuth };

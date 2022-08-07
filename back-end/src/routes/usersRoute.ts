@@ -1,11 +1,11 @@
-const { Router } = require('express');
-const userController = require('../controllers/usersController');
-const auth = require('../middlewares/userAuth');
+import { Router } from 'express';
+import userController from '../controllers/usersController';
+import auth from '../middlewares/userAuth';
 
 const usersRoutes = Router();
 
 // criar novo usuario
-usersRoutes.post('/user', auth.newUserAuth, userController.create);
+usersRoutes.post('/', auth.newUserAuth, userController.create);
 
 // // buscar usuario pelo id
 // usersRoutes.get('/user/:id', userController);
@@ -22,4 +22,4 @@ usersRoutes.post('/user', auth.newUserAuth, userController.create);
 // login
 // usersRoutes.post('/login', userController);
 
-module.exports = usersRoutes;
+export default usersRoutes
