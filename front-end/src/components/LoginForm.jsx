@@ -17,7 +17,7 @@ function LoginForm() {
       if (result.data.role === 'client')
         navigate('./ordersclient', { replace: true });
       if (result.data.role === 'seller')
-        navigate('./orders', { replace: true });
+        navigate('./ordersseller', { replace: true });
     }
     setErrorMsg(result.data.message);
   };
