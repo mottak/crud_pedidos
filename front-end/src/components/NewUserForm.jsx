@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
+import api from '../services/userApiService';
 
-function LoginForm() {
+function NewUserForm() {
   const [disable, setDisable] = useState(true);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [role, setRole] = useState('client');
+
   const [errorMsg, setErrorMsg] = useState('');
 
   const navigate = useNavigate();
@@ -16,8 +18,8 @@ function LoginForm() {
     const result = await api.createNewUser(name, email, password, role);
     if (result.data.token) {
       localStorage.setItem('token', result.data.token);
-      if (role === 'client') navigate('./ordersclient', { replace: true });
-      if (role === 'seller') navigate('./ordersseller', { replace: true });
+      if (role === 'client') navigate('../ordersclient', { replace: true });
+      if (role === 'seller') navigate('../ordersseller', { replace: true });
     }
     setErrorMsg(result.data.message);
   };
@@ -28,14 +30,14 @@ function LoginForm() {
     if (fiedlsFull) {
       setDisable(false);
     }
-  }, [name, email, password]);
+  }, [name, email, password, role]);
 
   return (
     <div>
       <h4>Titulo: {role}</h4>
       <form>
         <label htmlFor="name">
-          senha:
+          Nome:
           <input
             id="name"
             value={name}
@@ -72,14 +74,16 @@ function LoginForm() {
             value="client"
             type="radio"
             name="role"
-            checked={setRole('client')}
+            checked={role === 'client'}
+            onChange={(e) => setRole(e.target.value)}
           />
           Cliente
           <input
             value="seller"
             type="radio"
             name="role"
-            checked={setRole('seller')}
+            checked={role === 'seller'}
+            onChange={(e) => setRole(e.target.value)}
           />
           Vendedor
         </label>
@@ -93,11 +97,11 @@ function LoginForm() {
         >
           Cadastrar
         </button>
-      </form>
 
-      {errorMsg !== '' ? <span>{errorMsg}</span> : null}
+        {errorMsg !== '' ? <span>{errorMsg}</span> : null}
+      </form>
     </div>
   );
 }
 
-export default LoginForm;
+export default NewUserForm;
