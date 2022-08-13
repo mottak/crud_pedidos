@@ -4,7 +4,6 @@ import Context from './Context';
 function Provider({ children }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
 
   const contextValue = useMemo(
     () => ({
