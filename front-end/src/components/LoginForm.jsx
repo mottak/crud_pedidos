@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/userApiService';
+import './loginForm.css';
 
 function LoginForm() {
   const [disable, setDisable] = useState(true);
@@ -30,12 +31,12 @@ function LoginForm() {
   }, [email, password, setEmail, setPassword]);
 
   return (
-    <div>
-      <h4>Titulo</h4>
-      <form>
+    <div className="form-login-container">
+      <form className="input-group mb-3">
         <label htmlFor="email">
           e-mail:
           <input
+            className="form-control"
             id="email"
             value={email}
             name="email"
@@ -46,6 +47,7 @@ function LoginForm() {
         <label htmlFor="password">
           senha:
           <input
+            className="form-control"
             id="password"
             value={password}
             type="text"
@@ -56,6 +58,7 @@ function LoginForm() {
         </label>
 
         <button
+          className="btn btn-secondary"
           type="button"
           disabled={disable}
           onClick={() => {

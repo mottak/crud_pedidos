@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/userApiService';
+import './newUserForm.css';
 
 function NewUserForm() {
   const [disable, setDisable] = useState(true);
@@ -33,12 +34,13 @@ function NewUserForm() {
   }, [name, email, password, role]);
 
   return (
-    <div>
-      <h4>Titulo: {role}</h4>
-      <form>
+    <div className="form-container">
+      <h4>Quero criar uma conta</h4>
+      <form className="input-group mb-3">
         <label htmlFor="name">
           Nome:
           <input
+            className="form-control"
             id="name"
             value={name}
             type="text"
@@ -50,6 +52,7 @@ function NewUserForm() {
         <label htmlFor="email">
           e-mail:
           <input
+            className="form-control"
             id="email"
             value={email}
             name="email"
@@ -60,6 +63,7 @@ function NewUserForm() {
         <label htmlFor="password">
           senha:
           <input
+            className="form-control"
             id="password"
             value={password}
             type="text"
@@ -68,27 +72,32 @@ function NewUserForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <label htmlFor="role">
-          Criar usuário como:
-          <input
-            value="client"
-            type="radio"
-            name="role"
-            checked={role === 'client'}
-            onChange={(e) => setRole(e.target.value)}
-          />
-          Cliente
-          <input
-            value="seller"
-            type="radio"
-            name="role"
-            checked={role === 'seller'}
-            onChange={(e) => setRole(e.target.value)}
-          />
-          Vendedor
-        </label>
+        <div className="input-group radio-container">
+          <label htmlFor="role">
+            Criar usuário como:
+            <input
+              className="form-check-input mt-0"
+              value="client"
+              type="radio"
+              name="role"
+              checked={role === 'client'}
+              onChange={(e) => setRole(e.target.value)}
+            />
+            Cliente
+            <input
+              className="form-check-input mt-0"
+              value="seller"
+              type="radio"
+              name="role"
+              checked={role === 'seller'}
+              onChange={(e) => setRole(e.target.value)}
+            />
+            Vendedor
+          </label>
+        </div>
 
         <button
+          className="btn btn-secondary"
           type="button"
           disabled={disable}
           onClick={() => {

@@ -1,4 +1,5 @@
 import NewUserForm from '../components/NewUserForm';
+import './Pages.css';
 
 function Register() {
   return (
