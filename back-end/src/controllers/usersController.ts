@@ -24,8 +24,9 @@ const login = async (req: Request, res: Response) => {
     return res.status(400).json({ message: login });
   }
   if (login) {
+    const { role } = login;
     const token = auth.createToken(login)
-    return res.status(200).json({ message: 'login realizado com sucesso', token });
+    return res.status(200).json({ message: 'login realizado com sucesso', token, role });
   }
 }
 
