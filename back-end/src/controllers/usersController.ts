@@ -13,7 +13,7 @@ const create = async (req: Request, res: Response): Promise<typeof res> => {
     const token = auth.createToken({ id, name, email, role })
     return res.status(201).json({ token });
   }
-  return res.status(101).json({ message: 'Não conseguimos criar esse usuario' });
+  return res.status(501).json({ message: 'Não conseguimos criar esse usuario' });
 };
 
 

@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import productsController from '../controllers/productsController';
-// import auth from '../middlewares/userAuth';
+import auth from '../middlewares/userAuth';
 
 const productsRoutes = Router();
 
 // criar novo produto - somente admin
-// productsRoutes.post('/', productsController);
+productsRoutes.post('/', auth.tokenAuth, productsController.create);
 
 // lista todos os produtos
 productsRoutes.get('/', productsController.listAll);

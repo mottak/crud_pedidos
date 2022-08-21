@@ -18,6 +18,7 @@ CREATE TABLE
     products (
         id CHAR(36) NOT NULL,
         name VARCHAR(30) NOT NULL,
+        quantity INTEGER NOT NULL,
         PRIMARY KEY(id)
     ) ENGINE = INNODB;
 

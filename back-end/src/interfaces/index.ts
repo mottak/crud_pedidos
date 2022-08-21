@@ -3,6 +3,7 @@ import IUser from './IUser';
 import IPayload from './IPayload'
 import ILogin from './ILogin'
 import IProduct from './IProduct'
+import INewProduct from './INewProduct';
 
 
 export {
@@ -10,5 +11,6 @@ export {
   IUser,
   IPayload,
   ILogin,
-  IProduct
+  IProduct,
+  INewProduct
 };

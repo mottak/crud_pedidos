@@ -7,4 +7,12 @@ const listAll = async (req: Request, res: Response) => {
   return res.status(200).json(allProducts);
 }
 
-export default { listAll };
+const create = async (req: Request, res: Response) => {
+  const { body } = req;
+  const newProduct = await productService.create(body);
+  if (typeof newProduct === 'string') return res.status(400).json({ message: newProduct });
+  if (!newProduct) return res.status(501).json({ message: 'Não conseguimos criar esse produto' });
+  return res.status(201).json(newProduct);
+}
+
+export default { listAll, create };
