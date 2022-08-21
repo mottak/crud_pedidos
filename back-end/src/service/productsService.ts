@@ -24,5 +24,12 @@ const listAll = async (): Promise<IProduct[]> => {
   return productModel.listAll();
 }
 
+const update = async (id: string, productData: INewProduct): Promise<IProduct> => {
+  return productModel.update(id, productData)
+}
 
-export default { create, listAll };
+const deleteProduct = async (id: string,) => {
+  return productModel.deleteProduct(id)
+}
+
+export default { create, listAll, update, deleteProduct };

@@ -15,4 +15,19 @@ const create = async (req: Request, res: Response) => {
   return res.status(201).json(newProduct);
 }
 
-export default { listAll, create };
+const update = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { body } = req;
+  const updatedProduct = await productService.update(id, body)
+  if (updatedProduct) return res.status(200).json(updatedProduct);
+  return res.status(501).json({ message: 'Não conseguimos atualizar esse produto' });
+}
+
+const deleteProduct = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const deletedProduct = await productService.deleteProduct(id)
+  if (deletedProduct) return res.status(204).send()
+  return res.status(501).json({ message: 'Não conseguimos deletar esse produto' });
+}
+
+export default { listAll, create, update, deleteProduct };

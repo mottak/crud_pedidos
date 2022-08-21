@@ -4,16 +4,16 @@ import auth from '../middlewares/userAuth';
 
 const productsRoutes = Router();
 
-// criar novo produto - somente admin
+// criar novo produto
 productsRoutes.post('/', auth.tokenAuth, productsController.create);
 
 // lista todos os produtos
 productsRoutes.get('/', productsController.listAll);
 
-// //  atualizar produto - somente admin
-// productsRoutes.put('/:id', productsController);
+//  atualizar produto 
+productsRoutes.put('/:id', auth.tokenAuth, productsController.update);
 
-// // deletar produto - somente admin
-// productsRoutes.delete('/:id', productsController);
+// // deletar produto
+productsRoutes.delete('/:id', auth.tokenAuth, productsController.deleteProduct);
 
 export default productsRoutes

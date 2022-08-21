@@ -25,4 +25,17 @@ const findByName = async (name: string): Promise<IProduct> => {
   return product as IProduct;
 }
 
-export default { listAll, create, findByName };
+const update = async (id: string, productData: INewProduct): Promise<IProduct> => {
+  const {
+    name, quantity,
+  } = productData;
+  await connection.execute(query.updateProduct, [name, quantity, id]);
+  return { id, ...productData };
+}
+
+const deleteProduct = async (id: string) => {
+  return connection.execute(query.deleteProduct, [id]);
+
+}
+
+export default { listAll, create, findByName, update, deleteProduct };
