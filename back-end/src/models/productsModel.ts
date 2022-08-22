@@ -6,10 +6,10 @@ import { v4 as uuidv4 } from 'uuid'
 
 const create = async (productData: INewProduct): Promise<string | null | false> => {
   const {
-    name, quantity,
+    name, quantity, price
   } = productData;
   const productId = uuidv4();
-  const [newproduct] = await connection.execute(query.InsertProduct, [productId, name, quantity]);
+  const [newproduct] = await connection.execute(query.InsertProduct, [productId, name, quantity, price]);
   if (newproduct) return productId;
   return false;
 };

@@ -12,7 +12,7 @@ const userSchema = Joi.object({
   password: Joi.string()
     .min(6)
     .required(),
-  role: Joi.string().valid('client', 'seller', 'admin')
+  role: Joi.string().valid('client', 'seller')
     .required(),
 });
 

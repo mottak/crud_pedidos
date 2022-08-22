@@ -4,8 +4,8 @@ import auth from '../middlewares/userAuth';
 
 const productsRoutes = Router();
 
-// criar novo produto
-productsRoutes.post('/', auth.tokenAuth, productsController.create);
+// criar novo produto - cria validação do quem no body
+productsRoutes.post('/', productsController.create);
 
 // lista todos os produtos
 productsRoutes.get('/', productsController.listAll);
