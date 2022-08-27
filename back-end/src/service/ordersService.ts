@@ -14,9 +14,9 @@ const create = async (orderData: INewOrder): Promise<IOrder | false | string> =>
 
 };
 
-// const listAll = async (): Promise<IProduct[]> => {
-//   return productModel.listAll();
-// }
+const listAll = async (): Promise<IOrder[]> => {
+  return orderModel.listAll();
+}
 
 // const listById = async (id: string): Promise<IProduct> => {
 //   return productModel.listBId(id);
@@ -30,4 +30,4 @@ const create = async (orderData: INewOrder): Promise<IOrder | false | string> =>
 //   return productModel.deleteProduct(id)
 // }
 
-export default { create };
+export default { create, listAll };

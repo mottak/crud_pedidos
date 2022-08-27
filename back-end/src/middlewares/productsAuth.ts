@@ -12,7 +12,6 @@ const newProductAuth = (req: Request, res: Response, next: NextFunction) => {
   const { body } = req;
   const { error } = productSchema.validate(body);
   if (error) {
-    console.log({ error });
     next({ status: 400, message: error.details[0].message });
   }
   next();

@@ -2,10 +2,10 @@ import { Request, Response } from 'express'
 import orderService from '../service/ordersService';
 
 
-// const listAll = async (req: Request, res: Response) => {
-//   const allProducts = await productService.listAll();
-//   return res.status(200).json(allProducts);
-// }
+const listAll = async (req: Request, res: Response) => {
+  const allProducts = await orderService.listAll();
+  return res.status(200).json(allProducts);
+}
 
 const create = async (req: Request, res: Response) => {
   const { body } = req;
@@ -37,4 +37,4 @@ const create = async (req: Request, res: Response) => {
 //   return res.status(501).json({ message: 'Não conseguimos deletar esse produto' });
 // }
 
-export default { create };
+export default { create, listAll };

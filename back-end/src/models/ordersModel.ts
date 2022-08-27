@@ -15,10 +15,10 @@ const create = async (orderData: INewOrder): Promise<string | null | false> => {
 };
 
 
-// const listAll = async (): Promise<IProduct[]> => {
-//   const [allProducts] = await connection.execute(query.findAllProducts);
-//   return allProducts as IProduct[];
-// }
+const listAll = async (): Promise<IOrder[]> => {
+  const [allOrders] = await connection.execute(query.findAllOrders);
+  return allOrders as IOrder[];
+}
 
 // const listBId = async (id: string): Promise<IProduct> => {
 //   const [[product]] = await connection.execute<RowDataPacket[]>(query.findProductsById, [id]);
@@ -32,4 +32,4 @@ const create = async (orderData: INewOrder): Promise<string | null | false> => {
 
 // }
 
-export default { create };
+export default { create, listAll };
