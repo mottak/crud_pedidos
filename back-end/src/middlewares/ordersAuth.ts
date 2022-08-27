@@ -2,13 +2,12 @@ import { Request, Response, NextFunction } from 'express'
 import Joi from 'joi';
 
 const productSchema = Joi.object({
-  name: Joi.string().min(3).required(),
-  quantity: Joi.number().integer().required(),
-  price: Joi.number().greater(0).required(),
+  clientId: Joi.string().min(10).required(),
+  sellerId: Joi.string().min(10).required(),
 
 });
 
-const newProductAuth = (req: Request, res: Response, next: NextFunction) => {
+const newOrderAuth = (req: Request, res: Response, next: NextFunction) => {
   const { body } = req;
   const { error } = productSchema.validate(body);
   if (error) {
@@ -19,4 +18,4 @@ const newProductAuth = (req: Request, res: Response, next: NextFunction) => {
 };
 
 
-export default { newProductAuth, };
+export default { newOrderAuth, };

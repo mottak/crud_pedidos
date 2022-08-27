@@ -4,6 +4,8 @@ import IPayload from './IPayload'
 import ILogin from './ILogin'
 import IProduct from './IProduct'
 import INewProduct from './INewProduct';
+import INewOrder from './INewOrder'
+import IOrder from './IOrder'
 
 
 export {
@@ -12,5 +14,7 @@ export {
   IPayload,
   ILogin,
   IProduct,
-  INewProduct
+  INewProduct,
+  INewOrder,
+  IOrder,
 };

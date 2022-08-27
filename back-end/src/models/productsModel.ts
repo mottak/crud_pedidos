@@ -22,7 +22,6 @@ const listAll = async (): Promise<IProduct[]> => {
 
 const listBId = async (id: string): Promise<IProduct> => {
   const [[product]] = await connection.execute<RowDataPacket[]>(query.findProductsById, [id]);
-  console.log('model product', product)
   return product as IProduct;
 }
 

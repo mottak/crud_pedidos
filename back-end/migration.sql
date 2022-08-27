@@ -26,9 +26,8 @@ CREATE TABLE
 CREATE TABLE
     orders (
         id CHAR(36) NOT NULL,
-        clientId INT NOT NULL,
-        sellerId INT NOT NULL,
-        productsId INT NOT NULL,
+        clientId CHAR(36) NOT NULL,
+        sellerId CHAR(36) NOT NULL,
         date DATETIME DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY(id)
     ) ENGINE = INNODB;

@@ -6,13 +6,13 @@ import authProduct from '../middlewares/productsAuth';
 const productsRoutes = Router();
 
 // criar novo produto - cria validação do quem no body
-productsRoutes.post('/', authProduct.newProductAuth, productsController.create);
+productsRoutes.post('/', authUser.tokenAuth, authProduct.newProductAuth, productsController.create);
 
 // lista todos os produtos
 productsRoutes.get('/', productsController.listAll);
 
 //  atualizar produto 
-productsRoutes.put('/:id', authProduct.newProductAuth, productsController.update);
+productsRoutes.put('/:id', authUser.tokenAuth, authProduct.newProductAuth, productsController.update);
 
 // // deletar produto
 productsRoutes.delete('/:id', authUser.tokenAuth, productsController.deleteProduct);
