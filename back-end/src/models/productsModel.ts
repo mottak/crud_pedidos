@@ -20,6 +20,13 @@ const listAll = async (): Promise<IProduct[]> => {
   return allProducts as IProduct[];
 }
 
+const listBId = async (id: string): Promise<IProduct> => {
+  const [[product]] = await connection.execute<RowDataPacket[]>(query.findProductsById, [id]);
+  console.log('model product', product)
+  return product as IProduct;
+}
+
+
 const findByName = async (name: string): Promise<IProduct> => {
   const [[product]] = await connection.execute<RowDataPacket[]>(query.findProductsByName, [name]);
   return product as IProduct;
@@ -38,4 +45,4 @@ const deleteProduct = async (id: string) => {
 
 }
 
-export default { listAll, create, findByName, update, deleteProduct };
+export default { listAll, create, findByName, update, deleteProduct, listBId };

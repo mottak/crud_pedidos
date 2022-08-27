@@ -12,7 +12,7 @@ productsRoutes.post('/', authProduct.newProductAuth, productsController.create);
 productsRoutes.get('/', productsController.listAll);
 
 //  atualizar produto 
-productsRoutes.put('/:id', authUser.tokenAuth, productsController.update);
+productsRoutes.put('/:id', authProduct.newProductAuth, productsController.update);
 
 // // deletar produto
 productsRoutes.delete('/:id', authUser.tokenAuth, productsController.deleteProduct);
