@@ -1,5 +1,7 @@
+USE ordersDatabase;
+
 INSERT INTO
-    ordersDatabase.users (id, name, email, password, role)
+    users (id, name, email, password, role)
 VALUES (
         'bdcb4d42-4449-470e-ba88-4a3b6c290383',
         'Zé da Silva',
@@ -7,14 +9,15 @@ VALUES (
         '123456',
         'client'
     ), (
-        'bdcb4d42-4449-470e-ba88-4a3b6c290383',
+        'bdcb4d42-4449-470e-ba88-4a3b6c290353',
         "João dono da loja",
         "joao@email.com",
         "123456",
         "seller"
-    )
+    );
+
 INSERT INTO
-    ordersDatabase.products (id, name, quantity, price)
+    products (id, name, quantity, price)
 VALUES (
         "5a9df949-3e28-4865-bd19-260b9cef4754",
         "lápis",

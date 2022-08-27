@@ -27,9 +27,9 @@ const findByName = async (name: string): Promise<IProduct> => {
 
 const update = async (id: string, productData: INewProduct): Promise<IProduct> => {
   const {
-    name, quantity,
+    name, quantity, price
   } = productData;
-  await connection.execute(query.updateProduct, [name, quantity, id]);
+  await connection.execute(query.updateProduct, [name, quantity, price, id]);
   return { id, ...productData };
 }
 
