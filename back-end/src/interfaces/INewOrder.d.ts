@@ -1,7 +1,12 @@
+export type productId = {
+  produtId: string;
+  quantity: number;
+}
+
 interface INewOrder {
   clientId: string;
   sellerId: string;
-  productId: string;
+  productsId: Array<productId>;
 }
 
 export default INewOrder

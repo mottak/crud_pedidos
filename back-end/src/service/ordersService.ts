@@ -18,16 +18,16 @@ const listAll = async (): Promise<IOrder[]> => {
   return orderModel.listAll();
 }
 
-// const listById = async (id: string): Promise<IProduct> => {
-//   return productModel.listBId(id);
+const listById = async (id: string): Promise<IOrder> => {
+  return orderModel.listById(id)
+}
+
+// const update = async (id: string, orderData: INewOrder): Promise<IOrder> => {
+//   return orderModel.update(id, orderData)
 // }
 
-// const update = async (id: string, productData: INewProduct): Promise<IProduct> => {
-//   return productModel.update(id, productData)
-// }
+const deleteOrder = async (id: string,) => {
+  return orderModel.deleteOrder(id)
+}
 
-// const deleteProduct = async (id: string,) => {
-//   return productModel.deleteProduct(id)
-// }
-
-export default { create, listAll };
+export default { create, listAll, listById, deleteOrder };

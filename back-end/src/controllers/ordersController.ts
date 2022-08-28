@@ -17,24 +17,24 @@ const create = async (req: Request, res: Response) => {
 // const update = async (req: Request, res: Response) => {
 //   const { id } = req.params;
 //   const { body } = req;
-//   const productExists = await productService.listById(id);
+//   const productExists = await orderService.listById(id);
 //   if (!productExists) {
 //     return res.status(400).json({ message: 'Não é possivel atualizar um produto que não existe' });
 //   }
-//   const updatedProduct = await productService.update(id, body)
+//   const updatedProduct = await orderService.update(id, body)
 //   if (updatedProduct) return res.status(200).json(updatedProduct);
 //   return res.status(501).json({ message: 'Não conseguimos atualizar esse produto' });
 // }
 
-// const deleteProduct = async (req: Request, res: Response) => {
-//   const { id } = req.params;
-//   const productExists = await productService.listById(id);
-//   if (!productExists) {
-//     return res.status(400).json({ message: 'Não é possivel deletar um produto que não existe' });
-//   }
-//   const deletedProduct = await productService.deleteProduct(id)
-//   if (deletedProduct) return res.status(204).send()
-//   return res.status(501).json({ message: 'Não conseguimos deletar esse produto' });
-// }
+const deleteProduct = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const orderExists = await orderService.listById(id);
+  if (!orderExists) {
+    return res.status(400).json({ message: 'Não é possivel deletar um produto que não existe' });
+  }
+  const deletedOrder = await orderService.deleteOrder(id)
+  if (deletedOrder) return res.status(204).send()
+  return res.status(501).json({ message: 'Não conseguimos deletar esse produto' });
+}
 
-export default { create, listAll };
+export default { create, listAll, deleteProduct };

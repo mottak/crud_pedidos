@@ -1,8 +1,10 @@
+import { productId } from './INewOrder'
+
 interface IOrder {
   id: string;
   clientId: string;
   sellerId: string;
-  productId: string;
+  productsId: Array<productId>;
   date?: string;
 }
 
