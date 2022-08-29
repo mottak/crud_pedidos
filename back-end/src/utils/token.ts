@@ -7,4 +7,6 @@ const secret = (process.env.SECRET as string).toString()
 
 const createToken = (payload: IPayload) => jwt.sign(payload, secret);
 
-export default { createToken }
+const verifyToken = (token: string) => jwt.verify(token, secret);
+
+export default { createToken, verifyToken }
