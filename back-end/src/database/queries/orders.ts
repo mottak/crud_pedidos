@@ -11,7 +11,7 @@ const deleteOrder = 'DELETE FROM ordersDatabase.orders WHERE id = ?';
 
 // orders_details
 
-const insertOrderDetails = 'INSERT INTO ordersDatabase.order_details (orderId, productId, quantity) VALUES (?)'
+const insertOrderDetails = 'INSERT INTO ordersDatabase.order_details (orderId, productId, quantity) VALUES ?'
 
 const deleteOrderDetails = 'DELETE FROM ordersDatabase.order_details WHERE orderId = ?'
 

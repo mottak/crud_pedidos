@@ -7,7 +7,7 @@ import authOrder from '../middlewares/ordersAuth'
 const orderRoutes = Router();
 
 // criar novo pedido - cria validação do quem no body
-orderRoutes.post('/', authOrder.newOrderAuth, orderController.create);
+orderRoutes.post('/', orderController.create);
 
 // lista todos os pedidos
 orderRoutes.get('/', orderController.listAll);

@@ -12,14 +12,12 @@ const create = async (orderData: INewOrder): Promise<string | null | false> => {
   const [newproduct] = await connection.execute(query.InsertOrder, [orderId, clientId, sellerId]);
   if (newproduct) {
 
-    const productsIdString = productsId.map((product) => (
+    const productsIdString = productsId.map((product) =>
       [orderId, product.produtId, product.quantity]
-    ));
-    console.log(productsIdString);
-
+    )
     await connection.query(
-      'INSERT INTO ordersDatabase.order_details (orderId, productId, quantity) VALUES (?)',
-      productsIdString
+      query.insertOrderDetails,
+      [productsIdString]
     )
     return orderId;
   }
