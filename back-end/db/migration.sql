@@ -9,7 +9,7 @@ CREATE TABLE
         id CHAR(36) NOT NULL,
         name VARCHAR(30) NOT NULL,
         email VARCHAR(30) NOT NULL,
-        password VARCHAR(30) NOT NULL,
+        password TEXT NOT NULL,
         role VARCHAR(15) NOT NULL,
         PRIMARY KEY(id)
     ) ENGINE = INNODB;
