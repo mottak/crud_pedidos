@@ -9,4 +9,6 @@ export type UserWithPassword = User & {
   password: string
 }
 
-export type NewUser = Omit<User, 'id'>
+export type NewUser = Omit<UserWithPassword, 'id'>
+
+export type UserLogin = Omit<UserWithPassword, 'id' | 'name' | 'role'>
