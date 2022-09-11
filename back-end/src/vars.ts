@@ -1,9 +1,9 @@
 import { cwd, env } from 'process'
-import packageJson from '../package.json'
-
+// import packageJson from '../package.json'
 const vars = {
   api: {
-    name: packageJson.description,
+    // name: packageJson.description,
+    name: 'crud de pedidos',
     path: cwd(),
     port: Number(env.PORT) || 3001
   },
@@ -11,7 +11,7 @@ const vars = {
     url: env.MYSQL_URL
   },
   jwt: {
-    secret: env.SECRET
+    secret: env.SECRET || 'secret'
   }
 }
 
