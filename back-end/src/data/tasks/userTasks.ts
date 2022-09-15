@@ -22,7 +22,7 @@ export class UserTasks implements IUserTasks {
   }
   async checkEmail(email: User['email']): Promise<void> {
     const userEmail = await this.userRepo.findByEmail(email)
-    if (userEmail) throw new CustomError('"Email" is already in use', 'ConflitError')
+    if (userEmail) throw new CustomError('"Email" is already in use', 'UnautorizedError')
   }
 
 }
