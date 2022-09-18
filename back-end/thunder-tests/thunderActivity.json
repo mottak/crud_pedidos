@@ -5,10 +5,10 @@
     "containerId": "",
     "name": "http://localhost:3001/pedidos/register",
     "url": "http://localhost:3001/pedidos/products",
-    "method": "POST",
+    "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T21:36:08.099Z",
-    "modified": "2022-09-18T20:24:49.627Z",
+    "modified": "2022-09-18T20:57:34.084Z",
     "headers": [
       {
         "name": "Authorization",

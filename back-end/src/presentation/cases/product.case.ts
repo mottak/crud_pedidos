@@ -8,6 +8,7 @@ export class ProductCase implements IProductCase {
     readonly productsTasks: IProductTasks,
     readonly userAuth: IAuthTask
   ) { }
+
   async add(token: string | undefined, data: NewProduct): Promise<Product> {
     if (!token) {
       throw new CustomError('Please sign in', 'BadRequest')
@@ -15,5 +16,13 @@ export class ProductCase implements IProductCase {
     await this.userAuth.verify(token)
     const product = await this.productsTasks.add(data)
     return product
+  }
+  async read(token: string | undefined): Promise<Product[]> {
+    if (!token) {
+      throw new CustomError('Please sign in', 'BadRequest')
+    }
+    await this.userAuth.verify(token)
+    const products = await this.productsTasks.read()
+    return products
   }
 }
