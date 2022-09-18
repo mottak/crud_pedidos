@@ -1,5 +1,6 @@
 import { User } from '$/domain/models'
 
-export interface ICreateJwtContract {
+export interface IJwtContract {
   create(data: User): Promise<string>
+  verify(data: string): Promise<User>
 }

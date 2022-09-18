@@ -1,0 +1,64 @@
+[
+  {
+    "_id": "adebdd22-a274-4377-9ca0-f8e1f6fdb0fe",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/register",
+    "url": "http://localhost:3001/pedidos/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-09-11T21:36:08.099Z",
+    "modified": "2022-09-18T20:24:49.627Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzUzIiwibmFtZSI6Ikpvw6NvIGRvbm8gZGEgbG9qYSIsImVtYWlsIjoiam9hb0BlbWFpbC5jb20iLCJyb2xlIjoic2VsbGVyIn0sImlhdCI6MTY2MzUzMTc2NH0.68bS6GHesNnzqPRynC6_h5D7fPpfnM0gUvUFwy6h2QI"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"trem de minas\",\n  \"quantity\": 2,\n  \"price\": 40\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f9424abb-a786-4856-b80a-953d1d659803",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/user/register",
+    "url": "http://localhost:3001/pedidos/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-09-11T21:37:12.520Z",
+    "modified": "2022-09-18T20:09:24.460Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"joao@email.com\",\n  \"password\": \"123456\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "fbcc03da-a19a-48b6-91c6-427ff5c6c67b",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/user/register",
+    "url": "http://localhost:3001/pedidos/user/register",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-09-11T21:37:44.551Z",
+    "modified": "2022-09-11T23:06:13.585Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Zé das couve\",\n  \"email\": \"vlvlazedascouve@couve.com\",\n  \"password\": \"couveverde\",\n  \"role\": \"seller\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

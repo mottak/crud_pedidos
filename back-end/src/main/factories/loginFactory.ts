@@ -1,7 +1,7 @@
 import { AuthTask } from '$/data/tasks'
 import { LoginTask } from '$/data/tasks/loginTask'
 import { JwtAdapter } from '$/infra/adapters'
-import { UserDAO } from '$/infra/mysql/daos'
+import { UserDAO } from '$/infra/mySQL/daos/user.dao'
 import { LoginCase } from '$/presentation/cases/login.case'
 
 export const loginUserFactory = () => {

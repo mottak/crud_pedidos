@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 
 const errors: Record<string, number> = {
   UnautorizedError: 401,
+  BadRequest: 404,
   ConflitError: 409
 }
 

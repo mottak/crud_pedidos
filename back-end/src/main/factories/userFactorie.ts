@@ -1,6 +1,6 @@
 import { AuthTask, UserTasks } from '$/data/tasks'
 import { CreateUUID, JwtAdapter } from '$/infra/adapters'
-import { UserDAO } from '$/infra/mysql/daos'
+import { UserDAO } from '$/infra/mySQL/daos/user.dao'
 import { UserCase } from '$/presentation/cases/user.case'
 
 export const registerUserFactory = () => {
