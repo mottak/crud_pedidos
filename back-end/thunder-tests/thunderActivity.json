@@ -4,11 +4,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/register",
-    "url": "http://localhost:3001/pedidos/products",
+    "url": "http://localhost:3001/pedidos/products/53ee23dc-d502-456c-a93f-1e4b6646bd41",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T21:36:08.099Z",
-    "modified": "2022-09-18T20:57:34.084Z",
+    "modified": "2022-09-18T21:45:42.720Z",
     "headers": [
       {
         "name": "Authorization",

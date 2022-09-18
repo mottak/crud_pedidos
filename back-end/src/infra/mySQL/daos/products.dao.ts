@@ -2,7 +2,7 @@ import { Product } from '$/domain/models'
 import { mysqlHelper } from '$/infra/helper'
 import { RowDataPacket } from 'mysql2'
 import { IProductsRepo } from '../../../data/repos'
-import { findAllProducts, InsertProduct } from '../queries'
+import { findAllProducts, findProductsById, InsertProduct } from '../queries'
 
 export class ProductDAO implements IProductsRepo {
   async add(data: Product): Promise<void> {
@@ -11,6 +11,10 @@ export class ProductDAO implements IProductsRepo {
   async read(): Promise<Product[]> {
     const [products] = await mysqlHelper.client.query<RowDataPacket[]>(findAllProducts)
     return products as Product[]
+  }
+  async readOne(id: string): Promise<Product> {
+    const [[products]] = await mysqlHelper.client.query<RowDataPacket[]>(findProductsById, id)
+    return products as Product
   }
 
 }

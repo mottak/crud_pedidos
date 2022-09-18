@@ -20,4 +20,8 @@ export class ProductTask implements IProductTasks {
     const products = await this.productRepo.read()
     return products
   }
+  async readOne(id: string): Promise<Product> {
+    return this.productRepo.readOne(id)
+
+  }
 }

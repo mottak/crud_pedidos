@@ -25,4 +25,12 @@ export class ProductCase implements IProductCase {
     const products = await this.productsTasks.read()
     return products
   }
+  async readOne(token: string | undefined, id: string): Promise<Product> {
+    if (!token) {
+      throw new CustomError('Please sign in', 'BadRequest')
+    }
+    await this.userAuth.verify(token)
+    const products = await this.productsTasks.readOne(id)
+    return products
+  }
 }
