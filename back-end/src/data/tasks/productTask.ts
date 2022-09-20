@@ -22,6 +22,13 @@ export class ProductTask implements IProductTasks {
   }
   async readOne(id: string): Promise<Product> {
     return this.productRepo.readOne(id)
-
+  }
+  async update(id: string, data: NewProduct): Promise<Product> {
+    await this.productRepo.update(id, data)
+    const updated = {
+      id,
+      ...data
+    }
+    return updated
   }
 }

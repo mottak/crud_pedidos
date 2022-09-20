@@ -12,7 +12,6 @@ productRoutes.post('/products', async (req, res) => {
 })
 
 productRoutes.get('/products/:id', async (req, res) => {
-  console.log(' rota----', req.params)
   const data = await idSchema.validateAsync(req.params)
   const result = await productFactory().readOne(req.headers.authorization, data.id)
   return res.status(200).json(result)
@@ -21,6 +20,13 @@ productRoutes.get('/products/:id', async (req, res) => {
 productRoutes.get('/products', async (req, res) => {
   const result = await productFactory().read(req.headers.authorization)
   return res.status(200).json(result)
+})
+
+productRoutes.put('/products/:id', async (req, res) => {
+  const dataId = await idSchema.validateAsync(req.params)
+  const dataBody = await productSchema.validateAsync(req.body)
+  const result = await productFactory().update(req.headers.authorization, dataId.id, dataBody)
+  return res.status(201).json(result)
 })
 
 

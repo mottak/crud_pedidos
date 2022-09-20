@@ -4,11 +4,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/register",
-    "url": "http://localhost:3001/pedidos/products/53ee23dc-d502-456c-a93f-1e4b6646bd41",
-    "method": "GET",
+    "url": "http://localhost:3001/pedidos/products/a2e70a8c-89e2-4d97-94ef-b7a7d69c11c4",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2022-09-11T21:36:08.099Z",
-    "modified": "2022-09-18T21:45:42.720Z",
+    "modified": "2022-09-20T14:45:51.643Z",
     "headers": [
       {
         "name": "Authorization",
@@ -18,7 +18,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"trem de minas\",\n  \"quantity\": 2,\n  \"price\": 40\n}",
+      "raw": "{\n  \"name\": \"trem de minas - chic demais\",\n  \"quantity\": 20,\n  \"price\": 40\n}",
       "form": []
     },
     "tests": []

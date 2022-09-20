@@ -33,4 +33,13 @@ export class ProductCase implements IProductCase {
     const products = await this.productsTasks.readOne(id)
     return products
   }
+  async update(token: string | undefined, id: string, data: NewProduct): Promise<Product> {
+    if (!token) {
+      throw new CustomError('Please sign in', 'BadRequest')
+    }
+    await this.userAuth.verify(token)
+    const updated = await this.productsTasks.update(id, data)
+    return updated
+  }
+
 }
