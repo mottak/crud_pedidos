@@ -29,6 +29,12 @@ productRoutes.put('/products/:id', async (req, res) => {
   return res.status(200).json(result)
 })
 
+productRoutes.delete('/products/:id', async (req, res) => {
+  const dataId = await idSchema.validateAsync(req.params)
+  await productFactory().delete(req.headers.authorization, dataId.id)
+  return res.status(204).json({ message: 'deleted product' })
+})
+
 
 
 export default productRoutes

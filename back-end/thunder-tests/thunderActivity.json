@@ -4,11 +4,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/register",
-    "url": "http://localhost:3001/pedidos/products/a2e70a8c-89e2-4d97-94ef-b7a7d69c11c4",
-    "method": "PUT",
+    "url": "http://localhost:3001/pedidos/products/xa18fc37-c7b2-48ac-82f1-9bf161d396f2",
+    "method": "DELETE",
     "sortNum": 0,
     "created": "2022-09-11T21:36:08.099Z",
-    "modified": "2022-09-20T14:45:51.643Z",
+    "modified": "2022-09-21T12:47:19.615Z",
     "headers": [
       {
         "name": "Authorization",
@@ -16,11 +16,6 @@
       }
     ],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"name\": \"trem de minas - chic demais\",\n  \"quantity\": 20,\n  \"price\": 40\n}",
-      "form": []
-    },
     "tests": []
   },
   {

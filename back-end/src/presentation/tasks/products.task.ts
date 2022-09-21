@@ -5,6 +5,6 @@ export interface IProductTasks {
   read(): Promise<Product[]>
   readOne(id: string): Promise<Product>
   update(id: string, data: NewProduct): Promise<Product>
-  // delete(id: string): Promise<Product>
+  delete(id: string): Promise<void>
 
 }

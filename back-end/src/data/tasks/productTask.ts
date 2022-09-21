@@ -31,4 +31,8 @@ export class ProductTask implements IProductTasks {
     }
     return updated
   }
+  async delete(id: string): Promise<void> {
+    await this.productRepo.delete(id)
+
+  }
 }
