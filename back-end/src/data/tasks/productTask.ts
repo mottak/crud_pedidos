@@ -1,6 +1,7 @@
 import { NewProduct, Product } from '$/domain/models'
 import { IProductTasks } from '$/presentation/tasks/products.task'
 import { ICreateUUID } from '../contracts'
+import { CustomError } from '../errors'
 import { IProductsRepo } from '../repos'
 
 export class ProductTask implements IProductTasks {
@@ -21,7 +22,11 @@ export class ProductTask implements IProductTasks {
     return products
   }
   async readOne(id: string): Promise<Product> {
-    return this.productRepo.readOne(id)
+    const product = await this.productRepo.readOne(id)
+    if (!product) {
+      throw new CustomError('There is no order with this id', 'BadRequest')
+    }
+    return product
   }
   async update(id: string, data: NewProduct): Promise<Product> {
     await this.productRepo.update(id, data)
