@@ -5,7 +5,7 @@ export const InsertOrder = 'INSERT INTO ordersDatabase.orders (id, clientId, sel
 
 export const findOrderById = 'SELECT * FROM ordersDatabase.orders WHERE id = ?'
 
-export const updateOrderStatus = 'UPDATE ordersDatabase.orders SET status = ?, WHERE id = ?'
+export const updateOrderStatus = 'UPDATE ordersDatabase.orders SET status = ? WHERE id = ?'
 
 export const deleteOrder = 'DELETE FROM ordersDatabase.orders WHERE id = ?'
 

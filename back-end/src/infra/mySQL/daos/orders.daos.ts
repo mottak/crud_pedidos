@@ -1,8 +1,8 @@
 import { IOrderRepo } from '$/data/repos/orders.repo'
-import { Order, ProductsDetails } from '$/domain/models'
+import { Order, OrderStatus, ProductsDetails } from '$/domain/models'
 import { mysqlHelper } from '$/infra/helper'
 import { RowDataPacket } from 'mysql2'
-import { findAllOrders, findOrderById, InsertOrder, insertOrderDetails } from '../queries'
+import { findAllOrders, findOrderById, InsertOrder, insertOrderDetails, updateOrderStatus } from '../queries'
 
 export class OrderDAO implements IOrderRepo {
   async add(data: Order, productsId: Array<ProductsDetails>): Promise<void> {
@@ -17,6 +17,10 @@ export class OrderDAO implements IOrderRepo {
     const [[order]] = await mysqlHelper.client.query<RowDataPacket[]>(findOrderById, [id])
     return order as Order
   }
-
+  // atualiza somente o status
+  async update(id: string, status: OrderStatus): Promise<RowDataPacket> {
+    const [updated] = await mysqlHelper.client.query<RowDataPacket[]>(updateOrderStatus, [status, id])
+    return updated as RowDataPacket
+  }
 
 }
