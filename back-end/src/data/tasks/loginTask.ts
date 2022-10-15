@@ -1,11 +1,11 @@
 import { UserLogin, UserWithPassword } from '$/domain/models'
 import { ILoginTasks } from '$/presentation/tasks'
 import { CustomError } from '../errors'
-import { IUserRepo } from '../repos'
+import { ILoginRepo } from '../repos'
 
 export class LoginTask implements ILoginTasks {
   constructor(
-    readonly userRepo: IUserRepo,
+    readonly userRepo: ILoginRepo,
   ) {
 
   }
