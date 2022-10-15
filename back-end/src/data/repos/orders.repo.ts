@@ -7,4 +7,5 @@ export interface IOrderRepo {
   getOne(id: string): Promise<Order>
   verifyOne(id: string): Promise<Order>
   update(id: string, status: OrderStatus): Promise<RowDataPacket>
+  delete(id: string): Promise<RowDataPacket>
 }

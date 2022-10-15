@@ -37,4 +37,12 @@ export class OrderCase implements IOrderCase {
     await this.orderTask.update(id, data)
     return { message: `Order status ${id} has been updated successfully` }
   }
+
+  async delete(token: string | undefined, id: string,): Promise<Message> {
+    if (!token) throw new CustomError('Please sign in', 'BadRequest')
+
+    await this.userAuth.verify(token)
+    await this.orderTask.delete(id)
+    return { message: `Order status ${id} has been deleted successfully` }
+  }
 }
