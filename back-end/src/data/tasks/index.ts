@@ -1,4 +1,6 @@
 export * from './authTask'
 export * from './loginTask'
+export * from './orderTask'
 export * from './productTask'
 export * from './userTasks'
+export * from './userVerify'

@@ -2,8 +2,9 @@ import { NextFunction, Request, Response } from 'express'
 import Joi from 'joi'
 
 const errors: Record<string, number> = {
+  BadRequest: 400,
   UnautorizedError: 401,
-  BadRequest: 404,
+  NotFound: 404,
   ConflitError: 409
 }
 

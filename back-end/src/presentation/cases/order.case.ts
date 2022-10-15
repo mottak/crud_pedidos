@@ -1,6 +1,7 @@
 import { CustomError } from '$/data/errors'
 import { IOrderCase } from '$/domain/cases/order.case'
-import { NewOrder, Order } from '$/domain/models'
+import { Message } from '$/domain/generics/message'
+import { NewOrder, Order, OrderStatus } from '$/domain/models'
 import { IAuthTask, IOrderTasks } from '../tasks'
 
 export class OrderCase implements IOrderCase {
@@ -8,6 +9,7 @@ export class OrderCase implements IOrderCase {
     readonly orderTask: IOrderTasks,
     readonly userAuth: IAuthTask
   ) { }
+
   async add(token: string | undefined, data: NewOrder): Promise<Order> {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')
 
@@ -28,5 +30,11 @@ export class OrderCase implements IOrderCase {
     await this.userAuth.verify(token)
     return await this.orderTask.readOne(id)
   }
+  async update(token: string | undefined, id: string, data: OrderStatus): Promise<Message> {
+    if (!token) throw new CustomError('Please sign in', 'BadRequest')
 
+    await this.userAuth.verify(token)
+    await this.orderTask.update(id, data)
+    return { message: `Order status ${id} has been updated successfully` }
+  }
 }

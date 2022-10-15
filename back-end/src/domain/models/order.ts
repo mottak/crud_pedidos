@@ -18,4 +18,7 @@ export type ProductsDetails = [
   quantity: number,
 ]
 
+export type OrderStatus = 'Pendente' | 'Em andamento' | 'Entregue'
+
+export type OrderWithStatus = Omit<Order, 'productsInfos'> & OrderStatus
 

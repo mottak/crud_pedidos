@@ -1,4 +1,4 @@
-import { NewOrder, Order, ProductsDetails } from '$/domain/models'
+import { NewOrder, Order, OrderStatus, ProductsDetails } from '$/domain/models'
 import { IOrderTasks } from '$/presentation/tasks'
 import { ICreateUUID } from '../contracts'
 import { CustomError } from '../errors'
@@ -35,6 +35,12 @@ export class OrderTask implements IOrderTasks {
       throw new CustomError('There is no order with this id', 'BadRequest')
     }
     return order
+  }
+  async update(id: string, data: OrderStatus): Promise<void> {
+    const orderExists = await this.orderRepo.verifyOne(id)
+    if (!orderExists) throw new CustomError("This isn't a valid order. Please inform a valid one", 'NotFound')
+    const updated = await this.orderRepo.update(id, data)
+    if (!updated) throw new CustomError('Unable to update', 'BadRequest')
   }
 
 }
