@@ -11,3 +11,11 @@ export const orderSchema = Joi.object({
   ).required()
 })
 
+export const orderUpdateSchema = Joi.object({
+  status: Joi.string().pattern(/^Pendente|Em andamento|Entregue/).messages({
+    'string.pattern.base': "Status value must be Pendente or Em andamento or Entregue"
+  }),
+
+})
+
+// "\"status\" with value \"entregue\" fails to match the required pattern: /^Pendente|Em andamento|Entregue/"

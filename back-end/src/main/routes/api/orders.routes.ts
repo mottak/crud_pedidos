@@ -1,5 +1,5 @@
 import { orderFactory } from '$/main/factories'
-import { orderSchema } from '$/main/validators'
+import { orderSchema, orderUpdateSchema } from '$/main/validators'
 import { idSchema } from '$/main/validators/uuid.validator'
 import { Router } from 'express'
 
@@ -25,7 +25,7 @@ orderRoutes.get('/orders', async (req, res) => {
 // testar
 orderRoutes.put('/orders/:id', async (req, res) => {
   const { id } = await idSchema.validateAsync(req.params)
-  const data = await orderSchema.validateAsync(req.body)
+  const data = await orderUpdateSchema.validateAsync(req.body)
   const result = await orderFactory().update(req.headers.authorization, id, data)
   return res.status(200).json(result)
 })
