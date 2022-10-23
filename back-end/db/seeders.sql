@@ -17,6 +17,37 @@ VALUES (
     );
 
 INSERT INTO
+    address (
+        id,
+        user_id,
+        street,
+        number,
+        complement,
+        neighborhood,
+        city,
+        default_address
+    )
+VALUES (
+        'bdcb4d42-5559-470e-ba88-4a3b6c290383',
+        'bdcb4d42-4449-470e-ba88-4a3b6c290383',
+        'Rua dos bobos',
+        'zero',
+        '',
+        'Bairro das laranjeiras',
+        'Serra da Saudade',
+        true
+    ), (
+        'bdcb4d42-5559-470e-ba88-4a3b6c255583',
+        'bdcb4d42-4449-470e-ba88-4a3b6c290353',
+        'Rua da Serra',
+        '5537',
+        'apt 101',
+        'centro',
+        'Serra da Saudade',
+        false
+    );
+
+INSERT INTO
     products (id, name, quantity, price)
 VALUES (
         "5a9df949-3e28-4865-bd19-260b9cef4754",

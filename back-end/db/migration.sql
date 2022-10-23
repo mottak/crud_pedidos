@@ -15,6 +15,20 @@ CREATE TABLE
     ) ENGINE = INNODB;
 
 CREATE TABLE
+    address (
+        id CHAR(36) NOT NULL,
+        user_id CHAR(36) NOT NULL,
+        street VARCHAR(30) NOT NULL,
+        number VARCHAR(30) NOT NULL,
+        complement VARCHAR(30),
+        neighborhood VARCHAR(50) NOT NULL,
+        city VARCHAR(50) NOT NULL,
+        default_address BOOLEAN NOT NULL,
+        CONSTRAINT FK_USERS_ADDRESS FOREIGN KEY(user_id) REFERENCES users (id),
+        PRIMARY KEY(id)
+    ) ENGINE = INNODB;
+
+CREATE TABLE
     products (
         id CHAR(36) NOT NULL,
         name VARCHAR(30) NOT NULL,
