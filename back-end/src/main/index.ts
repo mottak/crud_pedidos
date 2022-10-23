@@ -3,6 +3,7 @@ import express from 'express'
 import 'express-async-errors'
 import { errorMiddleware } from './middlewares'
 import routes from './routes/index'
+const path = require('path')
 
 const app = express()
 
@@ -11,6 +12,9 @@ app.use(express.json())
 app.use(cors())
 
 app.use(routes)
+
+app.use('/images', express.static(path.join(__dirname + '/img')))
+
 
 app.use(errorMiddleware)
 
