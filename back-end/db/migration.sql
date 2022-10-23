@@ -35,6 +35,7 @@ CREATE TABLE
         quantity INTEGER NOT NULL,
         -- quantidade total do produto em estoque
         price DECIMAL(5, 2) NOT NULL,
+        photo VARCHAR(150) NOT NULL,
         PRIMARY KEY(id)
     ) ENGINE = INNODB;
 
