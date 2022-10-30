@@ -208,11 +208,12 @@ O Back-end recebe as informações no formato:
 O retornor serão as informações passadas com o id desse produto:
 
  ```json
- {
-  "id": "a38ba5b1-f119-46fe-b72a-ac87a039ed77",
-  "name":"Lápis de cor",
-  "quantity": "20",
-  "price": "40.50"
+{
+  "id": "aa38228e-fb29-4dfc-809d-6c172535294c",
+  "sellerId": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+  "name": "Lápis de cor",
+  "quantity": 20,
+  "price": 40.5
 }
 ```
 
@@ -226,10 +227,41 @@ O retorno dessa requisição será semelhante a:
 
 ```json
 {
-  "id": "ba18fc37-c7b2-48ac-82f1-9bf161d396f2",
-  "name": "borracha",
-  "quantity": 10,
-  "price": "1.20",
-  "photo": "http://localhost:3001/img/borracha.webp"
+  "id": "aa38228e-fb29-4dfc-809d-6c172535294c",
+  "seller_id": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+  "name": "Lápis de cor",
+  "quantity": 20,
+  "price": "40.50",
+  "photo": null
+}
+```
+
+### Atualizando produto
+
+Apenas vendedores podem atualizar produtos. O vendedor precisará estar logado para atualizar um novo produto.
+Será necessario informar: nome do produto, quantidade em estoque e preço da unidade, e uma imagem do protuto (opcional).
+
+A rota utilizada deverá ser: **POST pedidos/products/:id**
+
+Todos os campos podem ser atualizados exceto o sellerId.
+O back-end espera os dados assim:
+
+```json
+{
+  "name":"Lápis de cor faber castel",
+  "quantity": "35",
+  "price": "50.50"
+}
+```
+
+O retorno irão conter os dados atualizados e o _id_ do vendedor:
+
+```json
+{
+  "id": "aa38228e-fb29-4dfc-809d-6c172535294c",
+  "sellerId": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+  "name": "Lápis de cor faber castel",
+  "quantity": 35,
+  "price": 50.5
 }
 ```
