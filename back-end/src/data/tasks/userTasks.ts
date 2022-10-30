@@ -7,15 +7,16 @@ import { IUserRepo } from '../repos'
 export class UserTasks implements IUserTasks {
   constructor(
     readonly userRepo: IUserRepo,
-    readonly createUUIDContract: ICreateUUID
+    readonly createUUIDContract: ICreateUUID,
   ) {
 
   }
 
-  async add(data: NewUser): Promise<UserWithPassword> {
+  async add(userData: NewUser): Promise<UserWithPassword> {
+    const userId = this.createUUIDContract.create()
     const newUser: UserWithPassword = {
-      id: this.createUUIDContract.create(),
-      ...data
+      id: userId,
+      ...userData
     }
     await this.userRepo.add(newUser)
     return newUser

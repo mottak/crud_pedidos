@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "_id": "44547e85-29e5-4b5e-9b1a-4bce65930778",
+    "colId": "8385197d-9155-49ef-ba4b-0e123cd1c368",
+    "containerId": "",
+    "name": "getOrders",
+    "url": "http://localhost:3001/pedidos/orders/2571d3c4-9067-4503-8e94-74ce9bb65e51",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-09-27T14:41:12.972Z",
+    "modified": "2022-09-27T14:41:12.972Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NDI4OTU1OX0.NMbjhgsNGh8oXmcs8IOsRT6nsB9rkg-KX8QMXxFayXQ"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "d2565236-483e-4241-8b3c-78dc60f649ed",
+    "colId": "8385197d-9155-49ef-ba4b-0e123cd1c368",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/orders",
+    "url": "http://localhost:3001/pedidos/orders",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-09-27T14:41:22.256Z",
+    "modified": "2022-09-27T14:41:22.256Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NDI4OTU1OX0.NMbjhgsNGh8oXmcs8IOsRT6nsB9rkg-KX8QMXxFayXQ"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "31046184-3eee-4487-8f8e-a3478e4a2927",
+    "colId": "8385197d-9155-49ef-ba4b-0e123cd1c368",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/user/register",
+    "url": "http://localhost:3001/pedidos/orders",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-09-27T14:41:31.610Z",
+    "modified": "2022-09-27T14:41:31.610Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NDE5ODQzNn0.RZwZY4Ipgcx1LnPyZtv3CnfyMecqZf-PPpedxHz_z2A"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"clientId\": \"bdcb4d42-4449-470e-ba88-4a3b6c290383\",\n  \"sellerId\": \"bdcb4d42-4449-470e-ba88-4a3b6c290353\"\n\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "78a486d3-47b1-4ce5-96ee-91b80941e1d8",
+    "colId": "8385197d-9155-49ef-ba4b-0e123cd1c368",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/user/register",
+    "url": "http://localhost:3001/pedidos/login",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-09-27T14:41:40.102Z",
+    "modified": "2022-09-27T14:41:40.102Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"zesilva@email.com\",\n  \"password\": \"123456\"\n\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "544ceead-8776-44f1-9f49-b8d462d927c7",
+    "colId": "8385197d-9155-49ef-ba4b-0e123cd1c368",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/register",
+    "url": "http://localhost:3001/pedidos/products/xa18fc37-c7b2-48ac-82f1-9bf161d396f2",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2022-09-27T14:41:47.651Z",
+    "modified": "2022-09-27T14:41:47.651Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzUzIiwibmFtZSI6Ikpvw6NvIGRvbm8gZGEgbG9qYSIsImVtYWlsIjoiam9hb0BlbWFpbC5jb20iLCJyb2xlIjoic2VsbGVyIn0sImlhdCI6MTY2MzUzMTc2NH0.68bS6GHesNnzqPRynC6_h5D7fPpfnM0gUvUFwy6h2QI"
+      }
+    ],
+    "params": [],
+    "tests": []
+  }
+]

@@ -11,9 +11,9 @@ export class UserCase implements IUserCase {
     readonly userAuth: IAuthTask
   ) { }
 
-  async add(data: NewUser): Promise<Authentication> {
-    await this.userTasks.checkEmail(data.email)
-    const newUser = await this.userTasks.add(data)
+  async add(user: NewUser): Promise<Authentication> {
+    await this.userTasks.checkEmail(user.email)
+    const newUser = await this.userTasks.add(user)
     const { id,
       name,
       email,

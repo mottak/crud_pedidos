@@ -1,4 +1,6 @@
 export * from './addUser.validator'
+export * from './addressValidator'
 export * from './login.validator'
 export * from './order.validator'
-// export * from './products.validator'
+export * from './products.validator'
+export * from './uuid.validator'

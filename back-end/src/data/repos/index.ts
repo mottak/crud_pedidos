@@ -1,3 +1,4 @@
+export * from './address.repo'
 export * from './login.repo'
 export * from './orders.repo'
 export * from './products.repo'

@@ -4,18 +4,23 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/register",
-    "url": "http://localhost:3001/pedidos/products/xa18fc37-c7b2-48ac-82f1-9bf161d396f2",
-    "method": "DELETE",
+    "url": "http://localhost:3001/pedidos/orders/2571d3c4-9067-4503-8e94-74ce9bb65e51",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2022-09-11T21:36:08.099Z",
-    "modified": "2022-09-21T12:47:19.615Z",
+    "modified": "2022-10-16T19:21:30.847Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzUzIiwibmFtZSI6Ikpvw6NvIGRvbm8gZGEgbG9qYSIsImVtYWlsIjoiam9hb0BlbWFpbC5jb20iLCJyb2xlIjoic2VsbGVyIn0sImlhdCI6MTY2MzUzMTc2NH0.68bS6GHesNnzqPRynC6_h5D7fPpfnM0gUvUFwy6h2QI"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NTk0NDg4NX0.rEsqaT5NByEFLiyD4j1GcIET2j0b4WSJOGPPasOmjFA"
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{ \n  \"status\": \"Em andamento\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -23,16 +28,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/user/register",
-    "url": "http://localhost:3001/pedidos/login",
+    "url": "http://localhost:3001/pedidos/register",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:12.520Z",
-    "modified": "2022-09-18T20:09:24.460Z",
+    "modified": "2022-10-30T21:03:56.682Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"joao@email.com\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n  \"user\": {\n    \"name\": \"Ana Maria braga\",\n    \"email\": \"anamariabraga@email.com\",\n    \"password\": \"123456\",\n    \"role\": \"client\"\n  }\n}",
       "form": []
     },
     "tests": []
@@ -42,18 +47,56 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/user/register",
-    "url": "http://localhost:3001/pedidos/user/register",
+    "url": "http://localhost:3001/pedidos/login",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:44.551Z",
-    "modified": "2022-09-11T23:06:13.585Z",
+    "modified": "2022-10-30T20:31:43.251Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Zé das couve\",\n  \"email\": \"vlvlazedascouve@couve.com\",\n  \"password\": \"couveverde\",\n  \"role\": \"seller\"\n}",
+      "raw": "{\n  \"email\": \"zesilva@email.com\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "2013141e-319c-4f92-bae1-25501eb1bbd5",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/orders",
+    "url": "http://localhost:3001/pedidos/orders",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-27T14:39:13.104Z",
+    "modified": "2022-09-27T14:39:37.405Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NDI4OTU1OX0.NMbjhgsNGh8oXmcs8IOsRT6nsB9rkg-KX8QMXxFayXQ"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8fc4426f-490a-4c46-8610-d5ac90249629",
+    "colId": "history",
+    "containerId": "",
+    "name": "getOrders",
+    "url": "http://localhost:3001/pedidos/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-27T14:40:18.539Z",
+    "modified": "2022-10-30T17:35:07.383Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NDI4OTU1OX0.NMbjhgsNGh8oXmcs8IOsRT6nsB9rkg-KX8QMXxFayXQ"
+      }
+    ],
+    "params": [],
     "tests": []
   }
 ]

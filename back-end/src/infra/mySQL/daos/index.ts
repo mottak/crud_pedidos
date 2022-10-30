@@ -1,4 +1,5 @@
-// export * from './orders.daos'
+export * from './address.daos'
+export * from './login.daos'
+export * from './orders.daos'
 export * from './products.dao'
 export * from './user.dao'
-
