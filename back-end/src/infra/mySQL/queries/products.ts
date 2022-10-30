@@ -1,5 +1,5 @@
 export const findAllProducts = 'SELECT * FROM ordersDatabase.products'
-export const InsertProduct = 'INSERT INTO ordersDatabase.products (id, name, quantity, price) VALUES (?, ?, ?, ?)'
+export const InsertProduct = 'INSERT INTO ordersDatabase.products (id, seller_id, name, quantity, price) VALUES (?, ?, ?, ?, ?)'
 export const findProductsByName = 'SELECT * FROM ordersDatabase.products WHERE name = ?'
 
 export const findProductsById = 'SELECT * FROM ordersDatabase.products WHERE id = ?'

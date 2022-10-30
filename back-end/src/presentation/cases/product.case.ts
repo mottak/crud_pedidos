@@ -1,6 +1,6 @@
 import { CustomError } from '$/data/errors'
 import { IProductCase } from '$/domain/cases'
-import { NewProduct, Product } from '$/domain/models'
+import { NewProduct, Product, ProductWithSellerId } from '$/domain/models'
 import { IAuthTask, IProductTasks } from '../tasks'
 
 export class ProductCase implements IProductCase {
@@ -19,7 +19,11 @@ export class ProductCase implements IProductCase {
     if (payload.role !== 'seller') {
       throw new CustomError('You must be a seller to create a product!', 'UnautorizedError')
     }
-    const product = await this.productsTasks.add(data)
+    const newProduct: ProductWithSellerId = {
+      sellerId: payload.id,
+      ...data
+    }
+    const product = await this.productsTasks.add(newProduct)
     return product
   }
   async read(token: string | undefined): Promise<Product[]> {

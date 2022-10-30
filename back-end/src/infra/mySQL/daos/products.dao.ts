@@ -8,7 +8,7 @@ import { deleteProduct, findAllProducts, findProductsById, InsertProduct, update
 export class ProductDAO implements IProductsRepo {
 
   async add(data: Product): Promise<void> {
-    await mysqlHelper.client.query(InsertProduct, [data.id, data.name, data.quantity, data.price])
+    await mysqlHelper.client.query(InsertProduct, [data.id, data.sellerId, data.name, data.quantity, data.price])
   }
   async read(): Promise<Product[]> {
     const [products] = await mysqlHelper.client.query<RowDataPacket[]>(findAllProducts)

@@ -31,6 +31,7 @@ CREATE TABLE
 CREATE TABLE
     products (
         id CHAR(36) NOT NULL,
+        seller_id CHAR(36) NOT NULL,
         name VARCHAR(30) NOT NULL,
         quantity INTEGER NOT NULL,
         -- quantidade total do produto em estoque

@@ -1,4 +1,4 @@
-import { NewProduct, Product } from '$/domain/models'
+import { Product, ProductWithSellerId } from '$/domain/models'
 import { IProductTasks } from '$/presentation/tasks/products.task'
 import { ICreateUUID } from '../contracts'
 import { CustomError } from '../errors'
@@ -9,7 +9,7 @@ export class ProductTask implements IProductTasks {
     readonly productRepo: IProductsRepo,
     readonly createUUIDContract: ICreateUUID
   ) { }
-  async add(data: NewProduct): Promise<Product> {
+  async add(data: ProductWithSellerId): Promise<Product> {
     const newProduct = {
       id: this.createUUIDContract.create(),
       ...data
@@ -28,7 +28,7 @@ export class ProductTask implements IProductTasks {
     }
     return product
   }
-  async update(id: string, data: NewProduct): Promise<Product> {
+  async update(id: string, data: ProductWithSellerId): Promise<Product> {
     await this.productRepo.update(id, data)
     const updated = {
       id,
