@@ -1,4 +1,4 @@
-import { loginUserFactory, registerUserFactory } from '$/main/factories'
+import { addressFactory, loginUserFactory, registerUserFactory } from '$/main/factories'
 import { addressSchema, loginSchema, userSchema } from '$/main/validators'
 import { Router } from 'express'
 
@@ -6,9 +6,13 @@ const userRoutes = Router()
 
 userRoutes.post('/register', async (req, res) => {
   const dataUser = await userSchema.validateAsync(req.body.user)
-  const dataAddress = await addressSchema.validateAsync(req.body.address)
-  const result = await registerUserFactory().add(dataUser, dataAddress)
-  return res.status(201).json(result)
+  const resultUserRegister = await registerUserFactory().add(dataUser)
+
+  if (req.body.address) {
+    const dataAddress = await addressSchema.validateAsync(req.body.address)
+    await addressFactory().add(dataAddress, resultUserRegister.accessToken)
+  }
+  return res.status(201).json(resultUserRegister)
 })
 
 userRoutes.post('/login', async (req, res) => {

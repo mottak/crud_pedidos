@@ -32,17 +32,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:12.520Z",
-    "modified": "2022-10-30T17:17:52.280Z",
-    "headers": [
-      {
-        "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NDE5ODQzNn0.RZwZY4Ipgcx1LnPyZtv3CnfyMecqZf-PPpedxHz_z2A"
-      }
-    ],
+    "modified": "2022-10-30T21:03:56.682Z",
+    "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"user\": {\n    \"name\": \"Ana Maria\",\n    \"email\": \"anamariadobairro@email.com\",\n    \"password\": \"123456\",\n    \"role\": \"client\"\n  },\n  \n  \"address\": {\n    \"street\": \"Rua da Independencia\",\n    \"number\":\"30\",\n    \"complement\": \"apt 102\",\n    \"neighborhood\": \"bairro do brasil\",\n    \"city\": \"Juiz de Fora\",\n    \"defaultAddress\": true\n  }\n\n}",
+      "raw": "{\n  \"user\": {\n    \"name\": \"Ana Maria braga\",\n    \"email\": \"anamariabraga@email.com\",\n    \"password\": \"123456\",\n    \"role\": \"client\"\n  }\n}",
       "form": []
     },
     "tests": []
@@ -56,12 +51,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:44.551Z",
-    "modified": "2022-10-30T17:22:42.605Z",
+    "modified": "2022-10-30T20:31:43.251Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"zesilvasauro@email.com\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n  \"email\": \"zesilva@email.com\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
     "tests": []
@@ -90,11 +85,11 @@
     "colId": "history",
     "containerId": "",
     "name": "getOrders",
-    "url": "http://localhost:3001/pedidos/orders/2571d3c4-9067-4503-8e94-74ce9bb65e51",
+    "url": "http://localhost:3001/pedidos/products",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-27T14:40:18.539Z",
-    "modified": "2022-09-27T14:40:18.566Z",
+    "modified": "2022-10-30T17:35:07.383Z",
     "headers": [
       {
         "name": "Authorization",

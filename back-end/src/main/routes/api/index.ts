@@ -1,10 +1,11 @@
-import { Router } from 'express'
+import addressRoutes from './address.routes'
 import orderRoutes from './orders.routes'
-import productsRoutes from './products.routes'
+import productRoutes from './products.routes'
 import userRoutes from './user.routes'
 
-const apiRoutes = Router()
-
-apiRoutes.use('/', userRoutes, productsRoutes, orderRoutes)
-
-export default apiRoutes
+export {
+  userRoutes,
+  productRoutes,
+  orderRoutes,
+  addressRoutes
+}

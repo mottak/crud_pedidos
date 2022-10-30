@@ -10,9 +10,10 @@ export class AuthTask implements IAuthTask {
   async verify(token: string): Promise<User> {
 
     const payload = await this.createJwt.verify(token)
-    return payload as User
+    return payload
   }
   async auth(data: User): Promise<Authentication> {
+
     return {
       accessToken: await this.createJwt.create(data),
       expiresIn: 60
