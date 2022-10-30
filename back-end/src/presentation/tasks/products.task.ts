@@ -1,10 +1,11 @@
-import { NewProduct, Product } from '$/domain/models'
+import { NewProduct, Product, ProductWithSellerId, User } from '$/domain/models'
 
 export interface IProductTasks {
   add(data: NewProduct): Promise<Product>
   read(): Promise<Product[]>
-  readOne(id: string): Promise<Product>
-  update(id: string, data: NewProduct): Promise<Product>
-  delete(id: string): Promise<void>
+  readOne(id: Product['id']): Promise<Product>
+  readOneBySeller(id: Product['id'], sellerId: User['id']): Promise<Product>
+  update(id: Product['id'], data: ProductWithSellerId): Promise<Product>
+  delete(id: Product['id']): Promise<void>
 
 }

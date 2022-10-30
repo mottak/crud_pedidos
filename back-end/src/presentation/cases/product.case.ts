@@ -45,19 +45,18 @@ export class ProductCase implements IProductCase {
     const products = await this.productsTasks.readOne(id)
     return products
   }
-  async update(token: string | undefined, id: string, data: NewProduct): Promise<Product> {
+  async update(token: string | undefined, id: Product['id'], data: NewProduct): Promise<Product> {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')
+
     const payload = await this.userAuth.verify(token)
-    if (!payload) {
-      throw new CustomError('Invalid token. Please login!', 'UnauthorizedError')
-    }
-    if (payload.role !== 'seller') {
-      throw new CustomError('You must be a seller to update a product!', 'UnauthorizedError')
-    }
-    const exists = await this.productsTasks.readOne(id)
+    if (!payload) throw new CustomError('Invalid token. Please login!', 'UnauthorizedError')
+
+    if (payload.role !== 'seller') throw new CustomError('You must be a seller to update a product!', 'UnauthorizedError')
+
+    const exists = await this.productsTasks.readOneBySeller(id, payload.id)
     if (!exists) throw new CustomError("This product doesn't exist", 'BadRequest')
 
-    const updated = await this.productsTasks.update(id, data)
+    const updated = await this.productsTasks.update(id, { sellerId: payload.id, ...data })
     return updated
   }
 
