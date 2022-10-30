@@ -19,9 +19,9 @@ se tiver usando yarn:
 
 ### Cadastro de um novo cliente
 
-  Para um novo cliente se cadastrar ele precisará informar suas informações pessoais e pode ou não cadastrar um endereço.
-  A rota utilizada deve ser: **POST /pedidos/register**
-  O Back-end recebe as informações no formato:
+Para um novo cliente se cadastrar ele precisará informar suas informações pessoais e pode ou não cadastrar um endereço.
+A rota utilizada deve ser: **POST /pedidos/register**
+O Back-end recebe as informações no formato:
 
 ```json
 {
@@ -120,4 +120,116 @@ O retorno será:
     "photo": "http://localhost:3001/img/borracha.webp"
   }
 ]
+```
+
+Também é possível a busca de um produto pelo seu _id_:
+
+A rota utilizada deve ser: **GET /pedidos/products/:id**
+
+O retorno dessa requisição será semelhante a:
+
+```json
+{
+  "id": "ba18fc37-c7b2-48ac-82f1-9bf161d396f2",
+  "name": "borracha",
+  "quantity": 10,
+  "price": "1.20",
+  "photo": "http://localhost:3001/img/borracha.webp"
+}
+```
+
+## Rotas de um vendedor
+
+Para um novo vendedor se cadastrar ele precisará informar suas informações pessoais, e pode ou não cadastrar um endereço.
+Importante: Se um vendedor ja tiver um cadastro como cliente, ele não poderá se cadastrar com o mesmo email.
+A rota utilizada deve ser: **POST /pedidos/register**
+O Back-end recebe as informações no formato:
+
+```json
+{
+  "user": {
+    "name": "Maria do bairro",
+    "email": "mariadobairro@email.com",
+    "password": "123456",
+    "role": "seller"
+  },
+  
+  "address": {
+    "street": "Rua da Independencia",
+    "number":"30",
+    "complement": "apt 102",
+    "neighborhood": "bairro do brasil",
+    "city": "Juiz de Fora",
+    "defaultAddress": true
+  }
+}
+```
+
+Ou no seguinte formato quando o cliente não for cadastrar um endereço ao se registrar:
+
+```json
+{
+  "user": {
+    "name": "Maria do bairro",
+    "email": "mariadobairro@email.com",
+    "password": "123456",
+    "role": "seller"
+  }
+}
+```
+
+O vendedor após o registro já estará logado se tudo estiver certo.
+Essa requisição retorna um token.
+
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3YjFjYTY5LTllZGUtNGViNi1iMWE5LWQ4ODQxMDJlODUyZCIsIm5hbWUiOiJNYXJpYSBkbyBiYWlycm8iLCJlbWFpbCI6Im1hcmlhZG9iYWlycm9AZW1haWwuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY2NzE2NDQwMH0.J1jlqdN62eDewT0y_u1lAT9h7ZY20im-GXSFoE4Hk6Y",
+  "expiresIn": 60
+}
+```
+
+### Adicionando um novo produto
+
+Apenas vendedores podem adicionar produtos. O vendedor precisará estar logado para adicionar um novo produto.
+Será necessario informar: nome do produto, quantidade em estoque e preço da unidade, e uma imagem do protuto (opcional).
+
+A rota utilizada deverá ser: **POST pedidos/products**
+
+O Back-end recebe as informações no formato:
+
+ ```json
+ {
+  "name":"Lápis de cor",
+  "quantity": "20",
+  "price": "40.50"
+}
+```
+
+O retornor serão as informações passadas com o id desse produto:
+
+ ```json
+ {
+  "id": "a38ba5b1-f119-46fe-b72a-ac87a039ed77",
+  "name":"Lápis de cor",
+  "quantity": "20",
+  "price": "40.50"
+}
+```
+
+### Busca de um determinado produto
+
+É possível a busca de um produto pelo seu _id_:
+
+A rota utilizada deve ser: **GET /pedidos/products/:id**
+
+O retorno dessa requisição será semelhante a:
+
+```json
+{
+  "id": "ba18fc37-c7b2-48ac-82f1-9bf161d396f2",
+  "name": "borracha",
+  "quantity": 10,
+  "price": "1.20",
+  "photo": "http://localhost:3001/img/borracha.webp"
+}
 ```

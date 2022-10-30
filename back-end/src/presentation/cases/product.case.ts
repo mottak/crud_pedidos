@@ -17,13 +17,13 @@ export class ProductCase implements IProductCase {
       throw new CustomError('Invalid token. Please login!', 'UnauthorizedError')
     }
     if (payload.role !== 'seller') {
-      throw new CustomError('You must be a seller to create a product!', 'UnauthorizedError')
+      throw new CustomError('You must be a seller to create a product!', 'UnautorizedError')
     }
     const product = await this.productsTasks.add(data)
     return product
   }
   async read(token: string | undefined): Promise<Product[]> {
-    if (!token) throw new CustomError('Please sign in', 'BadRequest')
+    if (!token) throw new CustomError('Please sign in.', 'BadRequest')
 
     const payload = await this.userAuth.verify(token)
     if (!payload) {

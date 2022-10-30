@@ -13,7 +13,7 @@ export const errorMiddleware = (err: Error, _req: Request, res: Response, _next:
   console.log('middleware de erro', err)
   console.log('middleware de erro -name', name)
   const status = errors[name]
-  console.log('middleware de erro', status)
+  console.log('middleware de erro - status', status)
   if (status) {
     return res.status(status).json({ message })
   }
