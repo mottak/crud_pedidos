@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "_id": "8385197d-9155-49ef-ba4b-0e123cd1c368",
+    "colName": "Orders",
+    "created": "2022-09-27T14:40:58.704Z",
+    "sortNum": 10000,
+    "folders": []
+  }
+]

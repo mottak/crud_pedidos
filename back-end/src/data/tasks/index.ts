@@ -1,3 +1,4 @@
+export * from './addressTask'
 export * from './authTask'
 export * from './loginTask'
 export * from './orderTask'
