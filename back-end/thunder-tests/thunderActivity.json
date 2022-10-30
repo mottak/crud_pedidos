@@ -28,11 +28,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/user/register",
-    "url": "http://localhost:3001/pedidos/orders",
+    "url": "http://localhost:3001/pedidos/register",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:12.520Z",
-    "modified": "2022-09-26T18:45:54.550Z",
+    "modified": "2022-10-30T17:17:52.280Z",
     "headers": [
       {
         "name": "Authorization",
@@ -42,7 +42,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"clientId\": \"bdcb4d42-4449-470e-ba88-4a3b6c290383\",\n  \"sellerId\": \"bdcb4d42-4449-470e-ba88-4a3b6c290353\"\n\n}",
+      "raw": "{\n  \"user\": {\n    \"name\": \"Ana Maria\",\n    \"email\": \"anamariadobairro@email.com\",\n    \"password\": \"123456\",\n    \"role\": \"client\"\n  },\n  \n  \"address\": {\n    \"street\": \"Rua da Independencia\",\n    \"number\":\"30\",\n    \"complement\": \"apt 102\",\n    \"neighborhood\": \"bairro do brasil\",\n    \"city\": \"Juiz de Fora\",\n    \"defaultAddress\": true\n  }\n\n}",
       "form": []
     },
     "tests": []
@@ -56,12 +56,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:44.551Z",
-    "modified": "2022-10-16T18:28:05.354Z",
+    "modified": "2022-10-30T17:22:42.605Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"zesilva@email.com\",\n  \"password\": \"123456\"\n\n}",
+      "raw": "{\n  \"email\": \"zesilvasauro@email.com\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
     "tests": []

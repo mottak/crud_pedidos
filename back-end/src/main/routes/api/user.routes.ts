@@ -6,8 +6,8 @@ const userRoutes = Router()
 
 userRoutes.post('/register', async (req, res) => {
   const dataUser = await userSchema.validateAsync(req.body.user)
-  const dataAddress = await addressSchema.validateAsync(req.body.user)
-  const result = await registerUserFactory().add(dataUser)
+  const dataAddress = await addressSchema.validateAsync(req.body.address)
+  const result = await registerUserFactory().add(dataUser, dataAddress)
   return res.status(201).json(result)
 })
 

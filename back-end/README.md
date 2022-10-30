@@ -1,20 +1,11 @@
-# Boas vindas ao repositório de um projeto inicializado com NodeJS!
+# Projeto
 
-O objetivo desse repositório é facilitar a vida (a minha e de quem mais quiser usar esse repositório)
-Tendo em vista que desenvolvedores tem aquela faminha de preguisoços, no meu ponto de vista gostamos de aproveitar coisas que já estão prontas e funcionais
-criei esse repositório para agilizar o processo de comecar um projeto em node do zero.
+Esse projeto simula uma plataforma que interliga compradores e lojas.
+Aqui existem rotas que atendem tanto a um front-end do cliente, quanto das lojas.
 
-# O que tem nesse repositório?
+### Como usar?
 
-Esse repositorio tem um servidor em NodeJs com Express inicializado com uma rota /ping
-Além disso o Eslint ja está configurado de acordo com as regras do airbnb :star_struck:
-
-Usando o codigo desse repositório voce economiza tempo ao criar projetos do zero
-Fique a vontade para clonar ou fazer forks :blush:
-
-# Como usar?
-
-Com esse repositório clonado na sua máquina voce só precisa rodar o comando:
+Para rodar o projeto em sua máquina, você precisará apenas, clonar o repositório e rodar o comando:
 
 se estiver usando npm:
 
@@ -23,3 +14,50 @@ se estiver usando npm:
 se tiver usando yarn:
 
     `yarn install`
+
+## Rotas de um cliente
+
+### Cadastro de um novo cliente
+
+  Para um novo cliente se cadastrar ele precisará informar suas informações pessoais e um endereço.
+  A rota utilizada deve ser: **/pedidos/register**
+  O Back-end recebe as informações no formato:
+
+```json
+{
+  "user": {
+    "name": "Ana Maria",
+    "email": "anamaria@email.com",
+    "password": "123456",
+    "role": "client"
+  },
+  
+  "address": {
+    "street": "Rua da Independencia",
+    "number":"30",
+    "complement": "apt 102",
+    "neighborhood": "bairro do brasil",
+    "city": "Juiz de Fora",
+    "defaultAddress": true
+  }
+}
+```
+
+### Login de um cliente
+
+Para um cliente conseguir fazer o login, primeiro ele dever ter sido registrado.  O Back-end recebe as informações no formato:
+
+```json
+{
+  "email": "zesilva@email.com",
+  "password": "123456"
+}
+```
+
+Caso contrário ou a senha estiver errada, a mensagem de erro será retornada:
+
+```json
+{
+  "message": "Invalid email or password"
+}
+```

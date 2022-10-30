@@ -1,7 +1,7 @@
 import { Authentication } from '../generics'
-import { Address, NewUser } from '../models'
+import { AddressWithOutUserId, NewUser } from '../models'
 
 export interface IUserCase {
-  add(user: NewUser, address: Address): Promise<Authentication>
+  add(user: NewUser, address: AddressWithOutUserId): Promise<Authentication>
   // checkEmail(data: User['email']): Promise<void>
 }

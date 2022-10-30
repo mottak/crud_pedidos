@@ -8,6 +8,8 @@ export type Address = {
   defaultAddress: boolean
 }
 
+export type AddressWithOutUserId = Omit<Address, 'userId'>
+
 export type AddressWithId = Address & {
   id: string
 }
