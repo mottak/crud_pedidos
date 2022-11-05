@@ -48,21 +48,31 @@ VALUES (
     );
 
 INSERT INTO
-    products (id, name, quantity, price, photo)
+    products (
+        id,
+        seller_id,
+        name,
+        quantity,
+        price,
+        photo
+    )
 VALUES (
         "5a9df949-3e28-4865-bd19-260b9cef4754",
+        'bdcb4d42-4449-470e-ba88-4a3b6c290353',
         "lápis",
         20,
         0.5,
         'http://localhost:3001/img/lapis-preto.webp'
     ), (
         "ba18fc37-c7b2-48ac-82f1-9bf161d396f2",
+        'bdcb4d42-4449-470e-ba88-4a3b6c290353',
         "borracha",
         10,
         1.2,
         'http://localhost:3001/img/borracha.webp'
     ), (
         "53ee23dc-d502-456c-a93f-1e4b6646bd41",
+        'bdcb4d42-4449-470e-ba88-4a3b6c290353',
         "caderno",
         50,
         18.8,

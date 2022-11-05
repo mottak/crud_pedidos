@@ -9,19 +9,35 @@ Para rodar o projeto em sua máquina, você precisará apenas, clonar o reposit�
 
 se estiver usando npm:
 
-    `npm install`
+```bash
+  npm install
+```
 
 se tiver usando yarn:
 
-    `yarn install`
+```bash
+  yarn install
+```
+
+Depois de instalar as dependências, crie o banco de dados com o comando:
+
+```bash
+  CRIAR SCRIPT
+```
+
+Depois se você quiser basta popular esse banco com:
+
+```bash
+  CRIAR SCRIPT
+```
 
 ## Rotas de um cliente
 
 ### Cadastro de um novo cliente
 
-  Para um novo cliente se cadastrar ele precisará informar suas informações pessoais e pode ou não cadastrar um endereço.
-  A rota utilizada deve ser: **POST /pedidos/register**
-  O Back-end recebe as informações no formato:
+Para um novo cliente se cadastrar ele precisará informar suas informações pessoais e pode ou não cadastrar um endereço.
+A rota utilizada deve ser: **POST /pedidos/register**
+O Back-end recebe as informações no formato:
 
 ```json
 {
@@ -33,7 +49,7 @@ se tiver usando yarn:
   },
   
   "address": {
-    "street": "Rua da Independencia",
+    "street": "Rua da Independência",
     "number":"30",
     "complement": "apt 102",
     "neighborhood": "bairro do brasil",
@@ -120,4 +136,169 @@ O retorno será:
     "photo": "http://localhost:3001/img/borracha.webp"
   }
 ]
+```
+
+Também é possível a busca de um produto pelo seu _id_:
+
+A rota utilizada deve ser: **GET /pedidos/products/:id**
+
+O retorno dessa requisição será semelhante a:
+
+```json
+{
+  "id": "ba18fc37-c7b2-48ac-82f1-9bf161d396f2",
+  "name": "borracha",
+  "quantity": 10,
+  "price": "1.20",
+  "photo": "http://localhost:3001/img/borracha.webp"
+}
+```
+
+### Criando um novo pedido
+
+Cada cliente pode ter quantos pedidos fizer, 
+
+## Rotas de um vendedor
+
+Para um novo vendedor se cadastrar ele precisará informar suas informações pessoais, e pode ou não cadastrar um endereço.
+Importante: Se um vendedor ja tiver um cadastro como cliente, ele não poderá se cadastrar com o mesmo email.
+A rota utilizada deve ser: **POST /pedidos/register**
+O Back-end recebe as informações no formato:
+
+```json
+{
+  "user": {
+    "name": "Maria do bairro",
+    "email": "mariadobairro@email.com",
+    "password": "123456",
+    "role": "seller"
+  },
+  
+  "address": {
+    "street": "Rua da Independencia",
+    "number":"30",
+    "complement": "apt 102",
+    "neighborhood": "bairro do brasil",
+    "city": "Juiz de Fora",
+    "defaultAddress": true
+  }
+}
+```
+
+Ou no seguinte formato quando o cliente não for cadastrar um endereço ao se registrar:
+
+```json
+{
+  "user": {
+    "name": "Maria do bairro",
+    "email": "mariadobairro@email.com",
+    "password": "123456",
+    "role": "seller"
+  }
+}
+```
+
+O vendedor após o registro já estará logado se tudo estiver certo.
+Essa requisição retorna um token.
+
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3YjFjYTY5LTllZGUtNGViNi1iMWE5LWQ4ODQxMDJlODUyZCIsIm5hbWUiOiJNYXJpYSBkbyBiYWlycm8iLCJlbWFpbCI6Im1hcmlhZG9iYWlycm9AZW1haWwuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY2NzE2NDQwMH0.J1jlqdN62eDewT0y_u1lAT9h7ZY20im-GXSFoE4Hk6Y",
+  "expiresIn": 60
+}
+```
+
+### Adicionando um novo produto
+
+Apenas vendedores podem adicionar produtos. O vendedor precisará estar logado para adicionar um novo produto.
+Será necessario informar: nome do produto, quantidade em estoque e preço da unidade, e uma imagem do protuto (opcional).
+
+A rota utilizada deverá ser: **POST pedidos/products**
+
+O Back-end recebe as informações no formato:
+
+ ```json
+ {
+  "name":"Lápis de cor",
+  "quantity": "20",
+  "price": "40.50"
+}
+```
+
+O retornor serão as informações passadas com o id desse produto:
+
+ ```json
+{
+  "id": "aa38228e-fb29-4dfc-809d-6c172535294c",
+  "sellerId": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+  "name": "Lápis de cor",
+  "quantity": 20,
+  "price": 40.5
+}
+```
+
+### Busca de um determinado produto
+
+É possível a busca de um produto pelo seu _id_:
+
+A rota utilizada deve ser: **GET /pedidos/products/:id**
+
+O retorno dessa requisição será semelhante a:
+
+```json
+{
+  "id": "aa38228e-fb29-4dfc-809d-6c172535294c",
+  "seller_id": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+  "name": "Lápis de cor",
+  "quantity": 20,
+  "price": "40.50",
+  "photo": null
+}
+```
+
+### Atualizando produto
+
+Apenas vendedores podem atualizar produtos. O vendedor precisará estar logado para atualizar um novo produto.
+Será necessario informar: nome do produto, quantidade em estoque e preço da unidade, e uma imagem do protuto (opcional).
+
+A rota utilizada deverá ser: **PUT pedidos/products/:id**
+
+Todos os campos podem ser atualizados exceto o sellerId.
+O back-end espera os dados assim:
+
+```json
+{
+  "name":"Lápis de cor faber castel",
+  "quantity": "35",
+  "price": "50.50"
+}
+```
+
+O retorno irão conter os dados atualizados e o _id_ do vendedor:
+
+```json
+{
+  "id": "aa38228e-fb29-4dfc-809d-6c172535294c",
+  "sellerId": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+  "name": "Lápis de cor faber castel",
+  "quantity": 35,
+  "price": 50.5
+}
+```
+
+### Deletando um produto
+
+Apenas vendedores podem deletar produtos. E cada vendedor só pode deletar produtos que foram criados por ele mesmo.
+
+A rota utilizada deverá ser: **DELETE pedidos/products/:id**
+
+A resposta dessa rota quando a deleção acontece com sucesso é apenas o status **204**, sem nenhum corpo.
+
+Se um vendedor tentar deletar um produto que não é dele, será enviada a seguinte mensagem de erro:
+
+```json
+{
+  "message": "You aren't the owner of this product. You can't delete this product"
+}
+
 ```

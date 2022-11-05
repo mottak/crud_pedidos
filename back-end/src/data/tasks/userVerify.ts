@@ -11,7 +11,7 @@ export class UserVerifyTasks implements IUserVerifyTasks {
   }
   async findOne(id: string): Promise<User> {
     const userExists = await this.userRepo.findById(id)
-    if (!userExists) throw new CustomError('Please use a valid user', 'UnautorizedError')
+    if (!userExists) throw new CustomError('Please use a valid user', 'UnauthorizedError')
     return userExists
   }
 }

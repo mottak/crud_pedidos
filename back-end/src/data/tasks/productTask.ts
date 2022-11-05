@@ -1,4 +1,4 @@
-import { NewProduct, Product } from '$/domain/models'
+import { Product, ProductWithSellerId, User } from '$/domain/models'
 import { IProductTasks } from '$/presentation/tasks/products.task'
 import { ICreateUUID } from '../contracts'
 import { CustomError } from '../errors'
@@ -9,7 +9,7 @@ export class ProductTask implements IProductTasks {
     readonly productRepo: IProductsRepo,
     readonly createUUIDContract: ICreateUUID
   ) { }
-  async add(data: NewProduct): Promise<Product> {
+  async add(data: ProductWithSellerId): Promise<Product> {
     const newProduct = {
       id: this.createUUIDContract.create(),
       ...data
@@ -21,22 +21,30 @@ export class ProductTask implements IProductTasks {
     const products = await this.productRepo.read()
     return products
   }
-  async readOne(id: string): Promise<Product> {
+  async readOne(id: Product['id']): Promise<Product> {
     const product = await this.productRepo.readOne(id)
     if (!product) {
-      throw new CustomError('There is no order with this id', 'BadRequest')
+      throw new CustomError('There is no product with this id', 'BadRequest')
     }
     return product
   }
-  async update(id: string, data: NewProduct): Promise<Product> {
+  async readOneBySeller(id: Product['id'], sellerId: User['id']): Promise<Product> {
+    const product = await this.productRepo.readOneBySeller(id, sellerId)
+    if (!product) {
+      throw new CustomError('There is no product with this id', 'BadRequest')
+    }
+    return product
+  }
+  async update(id: Product['id'], data: ProductWithSellerId): Promise<Product> {
     await this.productRepo.update(id, data)
     const updated = {
       id,
       ...data
     }
+    console.log('updated product', updated)
     return updated
   }
-  async delete(id: string): Promise<void> {
+  async delete(id: Product['id']): Promise<void> {
     await this.productRepo.delete(id)
 
   }

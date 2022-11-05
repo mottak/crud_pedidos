@@ -3,7 +3,7 @@ import Joi from 'joi'
 
 const errors: Record<string, number> = {
   BadRequest: 400,
-  UnautorizedError: 401,
+  UnauthorizedError: 401,
   NotFound: 404,
   ConflitError: 409
 }
@@ -13,7 +13,7 @@ export const errorMiddleware = (err: Error, _req: Request, res: Response, _next:
   console.log('middleware de erro', err)
   console.log('middleware de erro -name', name)
   const status = errors[name]
-  console.log('middleware de erro', status)
+  console.log('middleware de erro - status', status)
   if (status) {
     return res.status(status).json({ message })
   }
