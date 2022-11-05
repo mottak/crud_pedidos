@@ -56,5 +56,5 @@ CREATE TABLE
         product_id CHAR(36) NOT NULL,
         quantity int NOT NULL,
         -- quantidade do produto no pedido
-        PRIMARY KEY(orderId, productId)
+        PRIMARY KEY(order_id, product_id)
     ) ENGINE = INNODB;
