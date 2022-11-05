@@ -43,8 +43,8 @@ CREATE TABLE
 CREATE TABLE
     orders (
         id CHAR(36) NOT NULL,
-        clientId CHAR(36) NOT NULL,
-        sellerId CHAR(36) NOT NULL,
+        client_id CHAR(36) NOT NULL,
+        seller_id CHAR(36) NOT NULL,
         date DATETIME DEFAULT CURRENT_TIMESTAMP,
         status CHAR(36) NOT NULL,
         PRIMARY KEY(id)
@@ -52,8 +52,8 @@ CREATE TABLE
 
 CREATE TABLE
     order_details (
-        orderId CHAR(36) NOT NULL,
-        productId CHAR(36) NOT NULL,
+        order_id CHAR(36) NOT NULL,
+        product_id CHAR(36) NOT NULL,
         quantity int NOT NULL,
         -- quantidade do produto no pedido
         PRIMARY KEY(orderId, productId)

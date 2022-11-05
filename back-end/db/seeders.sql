@@ -78,3 +78,35 @@ VALUES (
         18.8,
         'http://localhost:3001/img/caderno.jpg'
     )
+INSERT INTO
+    orders (
+        id,
+        client_id,
+        seller_id,
+        date,
+        status,
+    )
+VALUES (
+        'b376edd3-eef5-4e1e-b952-6f6a86b4f0c4',
+        'bdcb4d42-4449-470e-ba88-4a3b6c290383',
+        '8ab2043b-fbca-45c0-9521-4687e9a7513f',
+        '2022-11-05 19:07:51',
+        'pendente'
+    )
+INSERT INTO
+    order_details (
+        order_id,
+        product_id,
+        quantity,
+        date,
+        status,
+    )
+VALUES (
+        'b376edd3-eef5-4e1e-b952-6f6a86b4f0c4',
+        '53ee23dc-d502-456c-a93f-1e4b6646bd41',
+        5
+    ), (
+        'b376edd3-eef5-4e1e-b952-6f6a86b4f0c4',
+        '5a9df949-3e28-4865-bd19-260b9cef4754',
+        2
+    )
