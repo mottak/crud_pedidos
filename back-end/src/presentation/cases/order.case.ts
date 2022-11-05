@@ -2,19 +2,27 @@ import { CustomError } from '$/data/errors'
 import { IOrderCase } from '$/domain/cases/order.case'
 import { Message } from '$/domain/generics/message'
 import { NewOrder, Order, OrderStatus } from '$/domain/models'
-import { IAuthTask, IOrderTasks } from '../tasks'
+import { IAddressTasks, IAuthTask, IOrderTasks } from '../tasks'
 
 export class OrderCase implements IOrderCase {
   constructor(
     readonly orderTask: IOrderTasks,
-    readonly userAuth: IAuthTask
+    readonly userAuth: IAuthTask,
+    readonly addressTask: IAddressTasks
   ) { }
 
   async add(token: string | undefined, data: NewOrder): Promise<Order> {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')
 
-    await this.userAuth.verify(token)
-    const order = await this.orderTask.add(data)
+    const payload = await this.userAuth.verify(token)
+
+    if (payload.role !== 'client') throw new CustomError('Only users who has the role client, can add new orders', 'UnauthorizedError')
+
+    const newOrderwithClientId = { clientId: payload.id, ...data }
+
+    await this.addressTask.findByClientId(payload.id)
+
+    const order = await this.orderTask.add(newOrderwithClientId)
     return order
   }
   async read(token: string | undefined): Promise<Order[]> {

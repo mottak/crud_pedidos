@@ -156,7 +156,76 @@ O retorno dessa requisição será semelhante a:
 
 ### Criando um novo pedido
 
-Cada cliente pode ter quantos pedidos fizer, 
+Para realizar um pedido o usuário precisa estar logado.
+Os pedidos apenas podem ser feitos pelos usuários com _role client_. Cada cliente pode ter quantos pedidos desejar.
+
+A rota utilizada deve ser: **POST /pedidos/order**
+
+Se um vendedor tentar criar uma nova venda, é gerado o seguinte erro:
+
+```json
+{
+  "message": "Only users who has the role client, can add new orders"
+}
+```
+
+Se o cliente não possuir um endereço cadastrado, o ideal é que  Front-end deixe que o usuário faça a requisição sem o cadastro de um endereço. Mas se mesmo assim nenhum endereço for informado, o seguinte erro deve ser gerado:
+
+```json
+{
+  "message": "There is no user address register with the given userId"
+}
+
+```
+
+O Back-end recebe as informações no formato, onde cada posição do array _productsInfos_ é referente ao id de um produto e a quantidade desse produto no pedido.
+Se o usuário já possuir um endereço cadastrado, a chave _address_ não precisa ser informada.
+
+```json
+{
+  "order": {
+    "sellerId": "8ab2043b-fbca-45c0-9521-4687e9a7513f",
+    "productsInfos": [
+        {
+          "productId": "53ee23dc-d502-456c-a93f-1e4b6646bd41",
+          "quantity": 5
+        },
+        {
+          "productId": "5a9df949-3e28-4865-bd19-260b9cef4754",
+          "quantity": 2
+        }
+      ]
+  },
+   "address": {
+    "street": "Rua da Independência",
+    "number":"30",
+    "complement": "apt 102",
+    "neighborhood": "bairro do brasil",
+    "city": "Juiz de Fora",
+    "defaultAddress": true
+  }
+}
+```
+
+Se tudo estiver correto, o retorno dessa requisição será semelhante a:
+
+```json
+{
+  "id": "b376edd3-eef5-4e1e-b952-6f6a86b4f0c4",
+  "clientId": "bdcb4d42-4449-470e-ba88-4a3b6c290383",
+  "sellerId": "8ab2043b-fbca-45c0-9521-4687e9a7513f",
+  "productsInfos": [
+    {
+      "productId": "53ee23dc-d502-456c-a93f-1e4b6646bd41",
+      "quantity": 5
+    },
+    {
+      "productId": "5a9df949-3e28-4865-bd19-260b9cef4754",
+      "quantity": 2
+    }
+  ]
+}
+```
 
 ## Rotas de um vendedor
 

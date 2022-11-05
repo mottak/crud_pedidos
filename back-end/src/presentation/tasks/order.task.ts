@@ -1,7 +1,7 @@
-import { NewOrder, Order, OrderStatus } from '$/domain/models'
+import { NewOrderwithClientId, Order, OrderStatus } from '$/domain/models'
 
 export interface IOrderTasks {
-  add(data: NewOrder): Promise<Order>
+  add(data: NewOrderwithClientId): Promise<Order>
   read(): Promise<Order[]>
   readOne(id: string): Promise<Order>
   update(id: string, status: OrderStatus): Promise<void>

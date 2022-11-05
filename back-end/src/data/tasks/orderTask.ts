@@ -1,4 +1,4 @@
-import { NewOrder, Order, OrderStatus, ProductsDetails } from '$/domain/models'
+import { NewOrderwithClientId, Order, OrderStatus, ProductsDetails } from '$/domain/models'
 import { IOrderTasks } from '$/presentation/tasks'
 import { ICreateUUID } from '../contracts'
 import { CustomError } from '../errors'
@@ -10,7 +10,7 @@ export class OrderTask implements IOrderTasks {
     readonly createUUIDContract: ICreateUUID
   ) { }
 
-  async add(data: NewOrder): Promise<Order> {
+  async add(data: NewOrderwithClientId): Promise<Order> {
     const { productsInfos } = data
     const orderId = await this.createUUIDContract.create()
 

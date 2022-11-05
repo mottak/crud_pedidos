@@ -1,7 +1,7 @@
 import Joi from 'joi'
 
 export const orderSchema = Joi.object({
-  clientId: Joi.string().min(36).required(),
+  // clientId: Joi.string().min(36).required(),
   sellerId: Joi.string().min(36).required(),
   productsInfos: Joi.array().items(
     Joi.object({

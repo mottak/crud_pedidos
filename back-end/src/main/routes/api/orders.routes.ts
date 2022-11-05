@@ -1,13 +1,17 @@
-import { orderFactory } from '$/main/factories'
-import { orderSchema, orderUpdateSchema } from '$/main/validators'
+import { addressFactory, orderFactory } from '$/main/factories'
+import { addressSchema, orderSchema, orderUpdateSchema } from '$/main/validators'
 import { idSchema } from '$/main/validators/uuid.validator'
 import { Router } from 'express'
 
 const orderRoutes = Router()
 
 orderRoutes.post('/orders', async (req, res) => {
-  const data = await orderSchema.validateAsync(req.body)
-  const result = await orderFactory().add(req.headers.authorization, data)
+  if (req.body.address) {
+    const dataAddress = await addressSchema.validateAsync(req.body.address)
+    await addressFactory().add(dataAddress, req.headers.authorization)
+  }
+  const dataOrder = await orderSchema.validateAsync(req.body.order)
+  const result = await orderFactory().add(req.headers.authorization, dataOrder)
   return res.status(201).json(result)
 })
 

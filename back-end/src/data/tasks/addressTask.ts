@@ -1,4 +1,4 @@
-import { Address } from '$/domain/models'
+import { Address, AddressWithId, User } from '$/domain/models'
 import { IAddressTasks } from '$/presentation/tasks/address.task'
 import { ICreateUUID } from '../contracts'
 import { IAddressRepo } from '../repos'
@@ -17,6 +17,9 @@ export class AddressTask implements IAddressTasks {
       ...address
     }
     await this.addressRepo.add(completAddress)
+  }
+  async findByClientId(id: User['id']): Promise<AddressWithId> {
+    return this.addressRepo.findByUserId(id)
   }
 
 }
