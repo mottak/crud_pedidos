@@ -32,21 +32,21 @@ export class OrderTask implements IOrderTasks {
     }
     return this.orderRepo.getSellerOrders(userId)
   }
-  async readOne(id: string): Promise<Order> {
-    const order = await this.orderRepo.getOne(id)
-    if (!order) {
-      throw new CustomError('There is no order with this id', 'BadRequest')
+  async readOne(orderId: Order['id'], payload: User): Promise<Order> {
+    if (payload.role === 'client') {
+      return this.orderRepo.getOneClient(orderId, payload.id)
     }
-    return order
+
+    return this.orderRepo.getOneSeller(orderId, payload.id)
   }
-  async update(id: string, data: OrderStatus): Promise<void> {
+  async update(id: Order['id'], data: OrderStatus): Promise<void> {
     const orderExists = await this.orderRepo.verifyOne(id)
     if (!orderExists) throw new CustomError("This isn't a valid order. Please inform a valid one", 'NotFound')
     const updated = await this.orderRepo.update(id, data)
     if (!updated) throw new CustomError('Unable to update', 'BadRequest')
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(id: Order['id']): Promise<void> {
     const orderExists = await this.orderRepo.verifyOne(id)
     if (!orderExists) throw new CustomError("This isn't a valid order. Please inform a valid one", 'NotFound')
     const deleted = await this.orderRepo.delete(id)

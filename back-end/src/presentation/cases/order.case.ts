@@ -29,15 +29,14 @@ export class OrderCase implements IOrderCase {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')
 
     const payload = await this.userAuth.verify(token)
-    console.log('order case -payload', payload)
     return await this.orderTask.read(payload.id, payload.role)
 
   }
-  async readOne(token: string | undefined, id: string): Promise<Order> {
+  async readOne(token: string | undefined, id: Order['id']): Promise<Order> {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')
 
-    await this.userAuth.verify(token)
-    return await this.orderTask.readOne(id)
+    const payload = await this.userAuth.verify(token)
+    return await this.orderTask.readOne(id, payload)
   }
   async update(token: string | undefined, id: string, data: OrderStatus): Promise<Message> {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')

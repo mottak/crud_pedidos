@@ -254,6 +254,32 @@ O retorno será semelhante a:
 ]
 ```
 
+### Buscando pedido pelo id
+
+Cada usuário consegue buscar qualquer um dos seus pedidos independente do status que o pedido se encontra.
+
+A rota utilizada deve ser: **GET /pedidos/order/:id**
+
+O retorno será semelhante a:
+
+ ```json
+ [
+  {
+    "id": "b376edd3-eef5-4e1e-b952-6f6a86b4f0c4",
+    "client_id": "bdcb4d42-4449-470e-ba88-4a3b6c290383",
+    "seller_id": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+    "date": "2022-11-05T22:07:51.000Z",
+    "status": "pendente"
+  }
+]
+```
+
+Um cliente só consegue buscar pedidos que ele tenha feito. Se ele buscar pelo _id_ de um pedido que não foi ele quem fez, é gerado o seguinte erro:
+
+ ```json
+ { "message": "You has no order with this id" }
+ ```
+
 ## Rotas de um vendedor
 
 Para um novo vendedor se cadastrar ele precisará informar suas informações pessoais, e pode ou não cadastrar um endereço.
@@ -418,3 +444,29 @@ O retorno será semelhante a:
   }
 ]
 ```
+
+### Buscando pedido pelo id
+
+Cada usuário consegue buscar qualquer um dos seus pedidos independente do status que o pedido se encontra.
+
+A rota utilizada deve ser: **GET /pedidos/order/:id**
+
+O retorno será semelhante a:
+
+ ```json
+ [
+  {
+    "id": "b376edd3-eef5-4e1e-b952-6f6a86b4f0c4",
+    "client_id": "bdcb4d42-4449-470e-ba88-4a3b6c290383",
+    "seller_id": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+    "date": "2022-11-05T22:07:51.000Z",
+    "status": "pendente"
+  }
+]
+```
+
+O vendedor não consegue buscar pedidos de outros vendedores. É gerado o seguinte erro:
+
+ ```json
+ { "message": "You has no order with this id" }
+ ```

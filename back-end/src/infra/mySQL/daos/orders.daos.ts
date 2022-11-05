@@ -1,3 +1,4 @@
+import { CustomError } from '$/data/errors'
 import { IOrderRepo } from '$/data/repos/orders.repo'
 import { Order, OrderStatus, ProductsDetails, User } from '$/domain/models'
 import { mysqlHelper } from '$/infra/helper'
@@ -6,7 +7,8 @@ import {
   deleteOrder, deleteOrderDetails,
   findAllOrdersClient,
   findAllOrdersSeller,
-  findOrderById,
+  findOrderByIdClient,
+  findOrderByIdSeller,
   InsertOrder,
   insertOrderDetails,
   updateOrderStatus,
@@ -26,8 +28,14 @@ export class OrderDAO implements IOrderRepo {
     const [orders] = await mysqlHelper.client.query<RowDataPacket[]>(findAllOrdersSeller, [sellerId])
     return orders as Order[]
   }
-  async getOne(id: Order['id']): Promise<Order> {
-    const [[order]] = await mysqlHelper.client.query<RowDataPacket[]>(findOrderById, [id])
+  async getOneClient(orderId: Order['id'], userId: User['id']): Promise<Order> {
+    const [[order]] = await mysqlHelper.client.query<RowDataPacket[]>(findOrderByIdClient, [orderId, userId])
+    if (!order) throw new CustomError('You has no order with this id', 'BadRequest')
+    return order as Order
+  }
+  async getOneSeller(orderId: Order['id'], userId: User['id']): Promise<Order> {
+    const [[order]] = await mysqlHelper.client.query<RowDataPacket[]>(findOrderByIdSeller, [orderId, userId])
+    if (!order) throw new CustomError('You has no order with this id', 'BadRequest')
     return order as Order
   }
   async verifyOne(id: Order['id']): Promise<Order> {
