@@ -1,4 +1,4 @@
-import { NewOrderwithClientId, Order, OrderStatus, ProductsDetails } from '$/domain/models'
+import { NewOrderwithClientId, Order, OrderStatus, ProductsDetails, User } from '$/domain/models'
 import { IOrderTasks } from '$/presentation/tasks'
 import { ICreateUUID } from '../contracts'
 import { CustomError } from '../errors'
@@ -25,9 +25,12 @@ export class OrderTask implements IOrderTasks {
     return order
   }
 
-  async read(): Promise<Order[]> {
-    const orders = await this.orderRepo.get()
-    return orders
+  async read(userId: User['id'], userPayload: User['role']): Promise<Order[]> {
+    if (userPayload === 'client') {
+      return this.orderRepo.getClientOrders(userId)
+
+    }
+    return this.orderRepo.getSellerOrders(userId)
   }
   async readOne(id: string): Promise<Order> {
     const order = await this.orderRepo.getOne(id)

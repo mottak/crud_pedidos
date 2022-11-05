@@ -227,6 +227,33 @@ Se tudo estiver correto, o retorno dessa requisição será semelhante a:
 }
 ```
 
+### Buscando todos os pedidos
+
+Cada usuário consegue buscar todos os seus pedidos independente do status que o pedido se encontra.
+
+A rota utilizada deve ser: **GET /pedidos/order**
+
+O retorno será semelhante a:
+
+```json
+[
+  {
+    "id": "be8336c8-92fc-45ea-ae66-a90c2525fdc0",
+    "client_id": "079fc49e-3196-4c2d-ac70-5945bd2ede69",
+    "seller_id": "8ab2043b-fbca-45c0-9521-4687e9a7513f",
+    "date": "2022-11-05T23:55:54.000Z",
+    "status": "pendente"
+  },
+  {
+    "id": "e4d491c7-e8e1-471d-9798-cb96bb1ed841",
+    "client_id": "079fc49e-3196-4c2d-ac70-5945bd2ede69",
+    "seller_id": "8ab2043b-fbca-45c0-9521-4687e9a7513f",
+    "date": "2022-11-05T23:56:21.000Z",
+    "status": "pendente"
+  }
+]
+```
+
 ## Rotas de um vendedor
 
 Para um novo vendedor se cadastrar ele precisará informar suas informações pessoais, e pode ou não cadastrar um endereço.
@@ -370,4 +397,24 @@ Se um vendedor tentar deletar um produto que não é dele, será enviada a segui
   "message": "You aren't the owner of this product. You can't delete this product"
 }
 
+```
+
+### Buscando todos os pedidos
+
+Cada usuário consegue buscar todos os seus pedidos independente do status que o pedido se encontra.
+
+A rota utilizada deve ser: **GET /pedidos/order**
+
+O retorno será semelhante a:
+
+ ```json
+ [
+  {
+    "id": "b376edd3-eef5-4e1e-b952-6f6a86b4f0c4",
+    "client_id": "bdcb4d42-4449-470e-ba88-4a3b6c290383",
+    "seller_id": "bdcb4d42-4449-470e-ba88-4a3b6c290353",
+    "date": "2022-11-05T22:07:51.000Z",
+    "status": "pendente"
+  }
+]
 ```

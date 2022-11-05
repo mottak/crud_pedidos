@@ -1,5 +1,7 @@
 // orders
-export const findAllOrders = 'SELECT * FROM ordersDatabase.orders'
+export const findAllOrdersClient = 'SELECT * FROM ordersDatabase.orders WHERE client_id = ? '
+
+export const findAllOrdersSeller = 'SELECT * FROM ordersDatabase.orders WHERE seller_id = ?'
 
 export const InsertOrder = 'INSERT INTO ordersDatabase.orders (id, client_id, seller_id, date, status) VALUES (?, ?, ?, NOW(), "pendente")'
 

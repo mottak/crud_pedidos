@@ -28,8 +28,9 @@ export class OrderCase implements IOrderCase {
   async read(token: string | undefined): Promise<Order[]> {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')
 
-    await this.userAuth.verify(token)
-    return await this.orderTask.read()
+    const payload = await this.userAuth.verify(token)
+    console.log('order case -payload', payload)
+    return await this.orderTask.read(payload.id, payload.role)
 
   }
   async readOne(token: string | undefined, id: string): Promise<Order> {

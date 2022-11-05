@@ -1,9 +1,11 @@
 import { IOrderRepo } from '$/data/repos/orders.repo'
-import { Order, OrderStatus, ProductsDetails } from '$/domain/models'
+import { Order, OrderStatus, ProductsDetails, User } from '$/domain/models'
 import { mysqlHelper } from '$/infra/helper'
 import { RowDataPacket } from 'mysql2'
 import {
-  deleteOrder, deleteOrderDetails, findAllOrders,
+  deleteOrder, deleteOrderDetails,
+  findAllOrdersClient,
+  findAllOrdersSeller,
   findOrderById,
   InsertOrder,
   insertOrderDetails,
@@ -16,25 +18,29 @@ export class OrderDAO implements IOrderRepo {
     await mysqlHelper.client.query(InsertOrder, [data.id, data.clientId, data.sellerId])
     await mysqlHelper.client.query(insertOrderDetails, [productsId])
   }
-  async get(): Promise<Order[]> {
-    const [orders] = await mysqlHelper.client.query<RowDataPacket[]>(findAllOrders)
+  async getClientOrders(clientId: User['id']): Promise<Order[]> {
+    const [orders] = await mysqlHelper.client.query<RowDataPacket[]>(findAllOrdersClient, [clientId])
     return orders as Order[]
   }
-  async getOne(id: string): Promise<Order> {
+  async getSellerOrders(sellerId: User['id']): Promise<Order[]> {
+    const [orders] = await mysqlHelper.client.query<RowDataPacket[]>(findAllOrdersSeller, [sellerId])
+    return orders as Order[]
+  }
+  async getOne(id: Order['id']): Promise<Order> {
     const [[order]] = await mysqlHelper.client.query<RowDataPacket[]>(findOrderById, [id])
     return order as Order
   }
-  async verifyOne(id: string): Promise<Order> {
+  async verifyOne(id: Order['id']): Promise<Order> {
     const [[order]] = await mysqlHelper.client.query<RowDataPacket[]>(verifyOrderById, [id])
     return order as Order
   }
   // atualiza somente o status
-  async update(id: string, status: OrderStatus): Promise<RowDataPacket> {
+  async update(id: Order['id'], status: OrderStatus): Promise<RowDataPacket> {
     const [updated] = await mysqlHelper.client.query<RowDataPacket[]>(updateOrderStatus, [status, id])
     return updated as RowDataPacket
   }
 
-  async delete(id: string): Promise<RowDataPacket> {
+  async delete(id: Order['id']): Promise<RowDataPacket> {
     const [deleted] = await mysqlHelper.client.query<RowDataPacket[]>(deleteOrder, [id])
     await mysqlHelper.client.query(deleteOrderDetails, [id])
     return deleted as RowDataPacket
