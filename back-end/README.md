@@ -9,11 +9,27 @@ Para rodar o projeto em sua máquina, você precisará apenas, clonar o reposit�
 
 se estiver usando npm:
 
-    `npm install`
+```bash
+  npm install
+```
 
 se tiver usando yarn:
 
-    `yarn install`
+```bash
+  yarn install
+```
+
+Depois de instalar as dependências, crie o banco de dados com o comando:
+
+```bash
+  CRIAR SCRIPT
+```
+
+Depois se você quiser basta popular esse banco com:
+
+```bash
+  CRIAR SCRIPT
+```
 
 ## Rotas de um cliente
 
@@ -33,7 +49,7 @@ O Back-end recebe as informações no formato:
   },
   
   "address": {
-    "street": "Rua da Independencia",
+    "street": "Rua da Independência",
     "number":"30",
     "complement": "apt 102",
     "neighborhood": "bairro do brasil",
@@ -138,6 +154,10 @@ O retorno dessa requisição será semelhante a:
 }
 ```
 
+### Criando um novo pedido
+
+Cada cliente pode ter quantos pedidos fizer, 
+
 ## Rotas de um vendedor
 
 Para um novo vendedor se cadastrar ele precisará informar suas informações pessoais, e pode ou não cadastrar um endereço.
@@ -241,7 +261,7 @@ O retorno dessa requisição será semelhante a:
 Apenas vendedores podem atualizar produtos. O vendedor precisará estar logado para atualizar um novo produto.
 Será necessario informar: nome do produto, quantidade em estoque e preço da unidade, e uma imagem do protuto (opcional).
 
-A rota utilizada deverá ser: **POST pedidos/products/:id**
+A rota utilizada deverá ser: **PUT pedidos/products/:id**
 
 Todos os campos podem ser atualizados exceto o sellerId.
 O back-end espera os dados assim:
@@ -264,4 +284,21 @@ O retorno irão conter os dados atualizados e o _id_ do vendedor:
   "quantity": 35,
   "price": 50.5
 }
+```
+
+### Deletando um produto
+
+Apenas vendedores podem deletar produtos. E cada vendedor só pode deletar produtos que foram criados por ele mesmo.
+
+A rota utilizada deverá ser: **DELETE pedidos/products/:id**
+
+A resposta dessa rota quando a deleção acontece com sucesso é apenas o status **204**, sem nenhum corpo.
+
+Se um vendedor tentar deletar um produto que não é dele, será enviada a seguinte mensagem de erro:
+
+```json
+{
+  "message": "You aren't the owner of this product. You can't delete this product"
+}
+
 ```

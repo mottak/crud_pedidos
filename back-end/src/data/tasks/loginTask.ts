@@ -12,7 +12,7 @@ export class LoginTask implements ILoginTasks {
 
   async login(data: UserLogin): Promise<UserWithPassword> {
     const user = await this.userRepo.userLogin(data)
-    if (!user) throw new CustomError('Invalid email or password', 'UnautorizedError')
+    if (!user) throw new CustomError('Invalid email or password', 'UnauthorizedError')
     return user
   }
 

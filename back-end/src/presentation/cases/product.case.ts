@@ -17,7 +17,7 @@ export class ProductCase implements IProductCase {
       throw new CustomError('Invalid token. Please login!', 'UnauthorizedError')
     }
     if (payload.role !== 'seller') {
-      throw new CustomError('You must be a seller to create a product!', 'UnautorizedError')
+      throw new CustomError('You must be a seller to create a product!', 'UnauthorizedError')
     }
     const newProduct: ProductWithSellerId = {
       sellerId: payload.id,
@@ -69,10 +69,9 @@ export class ProductCase implements IProductCase {
     if (payload.role !== 'seller') {
       throw new CustomError('You must be a seller to delete a product!', 'UnauthorizedError')
     }
-    const exists = await this.productsTasks.readOne(id)
-    if (!exists) throw new CustomError("This product doesn't exist", 'BadRequest')
-    // servidor quebra quando produto não existe no banco
-
+    const product = await this.productsTasks.readOne(id)
+    if (payload.role !== product.sellerId) throw new CustomError("You aren't the owner of this product. You can't delete this product", 'UnauthorizedError')
     await this.productsTasks.delete(id)
+
   }
 }

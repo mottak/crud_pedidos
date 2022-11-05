@@ -3,7 +3,7 @@ import Joi from 'joi'
 
 const errors: Record<string, number> = {
   BadRequest: 400,
-  UnautorizedError: 401,
+  UnauthorizedError: 401,
   NotFound: 404,
   ConflitError: 409
 }
