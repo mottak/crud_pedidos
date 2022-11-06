@@ -38,11 +38,17 @@ export class OrderCase implements IOrderCase {
     const payload = await this.userAuth.verify(token)
     return await this.orderTask.readOne(id, payload)
   }
-  async update(token: string | undefined, id: string, data: OrderStatus): Promise<Message> {
+  async update(token: string | undefined, id: string, status: OrderStatus): Promise<Message> {
     if (!token) throw new CustomError('Please sign in', 'BadRequest')
-
-    await this.userAuth.verify(token)
-    await this.orderTask.update(id, data)
+    console.log('status da venda -----', status)
+    const payload = await this.userAuth.verify(token)
+    console.log('payload ----', payload.id)
+    if (payload.role === 'client' && status === 'Em andamento') {
+      console.log('if do cliente')
+      throw new CustomError("Only user who the role is 'seller' can to 'Em andamento'", 'UnauthorizedError')
+    }
+    if (payload.role === 'seller' && status === 'Entregue') throw new CustomError("Only user who the role is 'client' can to 'Entregue'", 'UnauthorizedError')
+    await this.orderTask.update(id, status)
     return { message: `Order status ${id} has been updated successfully` }
   }
 

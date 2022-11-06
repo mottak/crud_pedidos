@@ -280,6 +280,37 @@ Um cliente só consegue buscar pedidos que ele tenha feito. Se ele buscar pelo _
  { "message": "You has no order with this id" }
  ```
 
+### Atualizando um pedido
+
+Os pedidos apenas podem ser atualizados o status.
+Os clientes apenas podem atualizar o status de  para _Entregue_, independente de qual seja o status anterior.
+
+A rota utilizada deve ser: **POST /pedidos/order/:id**
+
+O back-end espera os dados assim:
+
+```json
+{ 
+  "status": "Entregue"
+}
+```
+
+A saída da requisição será semelhante a:
+
+```json
+{
+  "message": "Order status b376edd3-eef5-4e1e-b952-6f6a86b4f0c4 has been updated successfully"
+}
+```
+
+Se o cliente tentar mudar o status de um pedido para _Em andamento_, ele irá receber a seguinte mensagem de erro:
+
+```json
+{
+  "message": "Only user who the role is 'seller' can to 'Em andamento'"
+}
+```
+
 ## Rotas de um vendedor
 
 Para um novo vendedor se cadastrar ele precisará informar suas informações pessoais, e pode ou não cadastrar um endereço.
@@ -470,3 +501,34 @@ O vendedor não consegue buscar pedidos de outros vendedores. É gerado o seguin
  ```json
  { "message": "You has no order with this id" }
  ```
+
+### Atualizando um pedido
+
+Os pedidos apenas podem ser atualizados o status.
+Os vendedores apenas podem atualizar o status de _Pendente_ para _Em andamento_.
+
+A rota utilizada deve ser: **POST /pedidos/order/:id**
+
+O back-end espera os dados assim:
+
+```json
+{ 
+  "status": "Em andamento"
+}
+```
+
+A saída da requisição será semelhante a:
+
+```json
+{
+  "message": "Order status b376edd3-eef5-4e1e-b952-6f6a86b4f0c4 has been updated successfully"
+}
+```
+
+Se um vendedor tentar mudar o status de um pedido para _Entregue_, ele irá receber a seguinte mensagem de erro:
+
+```json
+{
+  "message": "Only user who the role is 'client' can to 'Entregue'"
+}
+```

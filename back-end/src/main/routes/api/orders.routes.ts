@@ -30,7 +30,7 @@ orderRoutes.get('/orders', async (req, res) => {
 orderRoutes.put('/orders/:id', async (req, res) => {
   const { id } = await idSchema.validateAsync(req.params)
   const data = await orderUpdateSchema.validateAsync(req.body)
-  const result = await orderFactory().update(req.headers.authorization, id, data)
+  const result = await orderFactory().update(req.headers.authorization, id, data.status)
   return res.status(200).json(result)
 })
 
