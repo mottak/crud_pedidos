@@ -8,6 +8,7 @@ export default async function recreateDatabase() {
   try {
     const importPath = path.resolve(__dirname, 'migration.sql')
     const seedDBContent = fs.readFileSync(importPath).toString()
+    // leitura do arquivo migration.sql
     const queries = seedDBContent.split(';').filter((p) => p.trim())
     console.log('queries linha 11 ----', queries)
     for (let i = 0; i < queries.length; i += 1) {
