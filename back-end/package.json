@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/index.ts",
+    "migration": "ts-node db/utils.ts",
     "lint": "eslint src -c .eslintrc.json --ext js,jsx"
   },
   "repository": {
@@ -43,6 +44,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
+    "fs": "^0.0.1-security",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",

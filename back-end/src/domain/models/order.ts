@@ -10,7 +10,10 @@ export type Order = {
   productsInfos: Array<ProductsInfo>
 }
 
-export type NewOrder = Omit<Order, 'id'>
+export type NewOrderwithClientId = Omit<Order, 'id'>
+
+
+export type NewOrder = Omit<Order, 'id' | 'clientId'>
 
 export type ProductsDetails = [
   orderId: string,
