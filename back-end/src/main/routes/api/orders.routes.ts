@@ -25,9 +25,7 @@ orderRoutes.get('/orders', async (req, res) => {
   return res.status(200).json(result)
 })
 
-// eu deveria usar put ou patch? porque?
-// testar
-orderRoutes.put('/orders/:id', async (req, res) => {
+orderRoutes.patch('/orders/:id', async (req, res) => {
   const { id } = await idSchema.validateAsync(req.params)
   const data = await orderUpdateSchema.validateAsync(req.body)
   const result = await orderFactory().update(req.headers.authorization, id, data.status)

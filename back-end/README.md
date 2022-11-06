@@ -285,7 +285,7 @@ Um cliente só consegue buscar pedidos que ele tenha feito. Se ele buscar pelo _
 Os pedidos apenas podem ser atualizados o status.
 Os clientes apenas podem atualizar o status de  para _Entregue_, independente de qual seja o status anterior.
 
-A rota utilizada deve ser: **POST /pedidos/order/:id**
+A rota utilizada deve ser: **PATCH /pedidos/order/:id**
 
 O back-end espera os dados assim:
 
@@ -507,7 +507,7 @@ O vendedor não consegue buscar pedidos de outros vendedores. É gerado o seguin
 Os pedidos apenas podem ser atualizados o status.
 Os vendedores apenas podem atualizar o status de _Pendente_ para _Em andamento_.
 
-A rota utilizada deve ser: **POST /pedidos/order/:id**
+A rota utilizada deve ser: **PATCH /pedidos/order/:id**
 
 O back-end espera os dados assim:
 
