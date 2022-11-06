@@ -32,14 +32,11 @@ orderRoutes.patch('/orders/:id', async (req, res) => {
   return res.status(200).json(result)
 })
 
-orderRoutes.delete('/orders/:id', async (req, res) => {
-  const { id } = await idSchema.validateAsync(req.params)
-  const result = await orderFactory().delete(req.headers.authorization, id)
-  return res.status(200).json(result)
-})
+// orderRoutes.delete('/orders/:id', async (req, res) => {
+//   const { id } = await idSchema.validateAsync(req.params)
+//   const result = await orderFactory().delete(req.headers.authorization, id)
+//   return res.status(200).json(result)
+// })
 
-// verificar se existe no banco os ids do cliente e do vendedor
-// verificar se existe o id dos produtos no banco
-// fazer uma nova factory pra cada item desse?
 
 export default orderRoutes

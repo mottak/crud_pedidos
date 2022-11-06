@@ -6,5 +6,5 @@ export interface IOrderCase {
   read(token: string): Promise<Order[]>
   readOne(token: string, id: Order['id']): Promise<Order>
   update(token: string, id: Order['id'], data: OrderStatus): Promise<Message>
-  delete(token: string, id: Order['id']): Promise<Message>
+  // delete(token: string, id: Order['id']): Promise<Message>
 }

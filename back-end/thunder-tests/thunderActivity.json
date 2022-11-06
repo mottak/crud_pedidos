@@ -4,15 +4,15 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/register",
-    "url": "http://localhost:3001/pedidos/orders/2571d3c4-9067-4503-8e94-74ce9bb65e51",
-    "method": "PUT",
+    "url": "http://localhost:3001/pedidos/orders/b376edd3-eef5-4e1e-b952-6f6a86b4f0c4",
+    "method": "PATCH",
     "sortNum": 0,
     "created": "2022-09-11T21:36:08.099Z",
-    "modified": "2022-10-16T19:21:30.847Z",
+    "modified": "2022-11-06T18:35:41.098Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NTk0NDg4NX0.rEsqaT5NByEFLiyD4j1GcIET2j0b4WSJOGPPasOmjFA"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkY2I0ZDQyLTQ0NDktNDcwZS1iYTg4LTRhM2I2YzI5MDM1MyIsIm5hbWUiOiJKb8OjbyBkb25vIGRhIGxvamEiLCJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY2Nzc1OTQwOX0.jID81DC4ddNoQl5TMw1f5pCfJEtX1RyKQVC31p92IUA"
       }
     ],
     "params": [],
@@ -32,12 +32,36 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:12.520Z",
-    "modified": "2022-10-30T21:13:20.862Z",
+    "modified": "2022-11-05T21:29:16.495Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"user\": {\n    \"name\": \"Maria do bairro\",\n    \"email\": \"mariadobairro@email.com\",\n    \"password\": \"123456\",\n    \"role\": \"seller\"\n  }\n}",
+      "raw": "{\n  \"user\": {\n    \"name\": \"Maria do bairro\",\n    \"email\": \"mariadobairrocliente@email.com\",\n    \"password\": \"123456\",\n    \"role\": \"client\"\n  }\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "16680f01-1a69-4b1d-8026-36a40a63826c",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/pedidos/user/register Copy",
+    "url": "http://localhost:3001/pedidos/orders/b376edd3-eef5-4e1e-b952-6f6a86b4f0c4",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-11T21:37:12.520Z",
+    "modified": "2022-11-05T21:51:41.613Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkY2I0ZDQyLTQ0NDktNDcwZS1iYTg4LTRhM2I2YzI5MDM4MyIsIm5hbWUiOiJaw6kgZGEgU2lsdmEiLCJlbWFpbCI6Inplc2lsdmFAZW1haWwuY29tIiwicm9sZSI6ImNsaWVudCIsImlhdCI6MTY2NzY4NDk0NX0.xoAHcBGK6ZC2j9AWET7Iw2l55YUHIJBU9TabDCR29vQ"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"order\": {\n    \"sellerId\": \"8ab2043b-fbca-45c0-9521-4687e9a7513f\",\n    \"productsInfos\": [\n        {\n          \"productId\": \"53ee23dc-d502-456c-a93f-1e4b6646bd41\",\n          \"quantity\": 2\n        }\n      ]\n  }\n}",
       "form": []
     },
     "tests": []
@@ -51,7 +75,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:44.551Z",
-    "modified": "2022-10-30T21:27:45.099Z",
+    "modified": "2022-11-06T18:30:09.905Z",
     "headers": [],
     "params": [],
     "body": {
@@ -66,15 +90,15 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/orders",
-    "url": "http://localhost:3001/pedidos/orders",
-    "method": "GET",
+    "url": "http://localhost:3001/pedidos/products/53ee23dc-d502-456c-a93f-1e4b6646bd41",
+    "method": "DELETE",
     "sortNum": 0,
     "created": "2022-09-27T14:39:13.104Z",
-    "modified": "2022-09-27T14:39:37.405Z",
+    "modified": "2022-11-05T18:00:17.527Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYmRjYjRkNDItNDQ0OS00NzBlLWJhODgtNGEzYjZjMjkwMzgzIiwibmFtZSI6IlrDqSBkYSBTaWx2YSIsImVtYWlsIjoiemVzaWx2YUBlbWFpbC5jb20iLCJyb2xlIjoiY2xpZW50In0sImlhdCI6MTY2NDI4OTU1OX0.NMbjhgsNGh8oXmcs8IOsRT6nsB9rkg-KX8QMXxFayXQ"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhYjIwNDNiLWZiY2EtNDVjMC05NTIxLTQ2ODdlOWE3NTEzZiIsIm5hbWUiOiJNYXJpYSBkbyBiYWlycm8iLCJlbWFpbCI6Im1hcmlhZG9iYWlycm9AZW1haWwuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY2NzY3MDk2MH0.qqZ6EH98781r-EptB9lDPr3Zyolj6ePTsfNcB7R9Cnc"
       }
     ],
     "params": [],
@@ -85,11 +109,11 @@
     "colId": "history",
     "containerId": "",
     "name": "getOrders",
-    "url": "http://localhost:3001/pedidos/products/ba18fc37-c7b2-48ac-82f1-9bf161d396f2",
-    "method": "GET",
+    "url": "http://localhost:3001/pedidos/products/aa38228e-fb29-4dfc-809d-6c172535294c",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2022-09-27T14:40:18.539Z",
-    "modified": "2022-10-30T21:36:38.120Z",
+    "modified": "2022-11-05T21:39:12.305Z",
     "headers": [
       {
         "name": "Authorization",
@@ -99,7 +123,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Lápis de cor\",\n  \"quantity\": \"20\",\n  \"price\": \"40.50\"\n}",
+      "raw": "{\n  \"name\":\"Lápis de cor faber castel\",\n  \"quantity\": \"35\",\n  \"price\": \"50.50\"\n}",
       "form": []
     },
     "tests": []

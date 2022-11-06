@@ -9,6 +9,9 @@ export class OrderTask implements IOrderTasks {
     readonly orderRepo: IOrderRepo,
     readonly createUUIDContract: ICreateUUID
   ) { }
+  delete(id: string): Promise<void> {
+    throw new Error('Method not implemented.')
+  }
 
   async add(data: NewOrderwithClientId): Promise<Order> {
     const { productsInfos } = data
@@ -46,11 +49,11 @@ export class OrderTask implements IOrderTasks {
     if (!updated) throw new CustomError('Unable to update', 'BadRequest')
   }
 
-  async delete(id: Order['id']): Promise<void> {
-    const orderExists = await this.orderRepo.verifyOne(id)
-    if (!orderExists) throw new CustomError("This isn't a valid order. Please inform a valid one", 'NotFound')
-    const deleted = await this.orderRepo.delete(id)
-    if (!deleted) throw new CustomError('Unable to delete', 'BadRequest')
-  }
+  // async delete(id: Order['id']): Promise<void> {
+  //   const orderExists = await this.orderRepo.verifyOne(id)
+  //   if (!orderExists) throw new CustomError("This isn't a valid order. Please inform a valid one", 'NotFound')
+  //   const deleted = await this.orderRepo.delete(id)
+  //   if (!deleted) throw new CustomError('Unable to delete', 'BadRequest')
+  // }
 
 }

@@ -5,6 +5,6 @@ export interface IOrderTasks {
   read(userId: User['id'], userPayload: User['role']): Promise<Order[]>
   readOne(orderId: Order['id'], payload: User): Promise<Order>
   update(id: Order['id'], status: OrderStatus): Promise<void>
-  delete(id: Order['id']): Promise<void>
+  // delete(id: Order['id']): Promise<void>
 
 }
