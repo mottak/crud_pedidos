@@ -5,7 +5,12 @@ Aqui existem rotas que atendem tanto a um front-end do cliente, quanto das lojas
 
 ### Como usar?
 
-Para rodar o projeto em sua máquina, você precisará apenas, clonar o repositório e rodar o comando:
+Para rodar o projeto em sua máquina, você precisará ter o mysql instalado na sua máquina ou rodar via Docker. Para rodar via Docker pode ser usado o comando:
+
+```bash
+docker container run --name container-mysql -e MYSQL_ROOT_PASSWORD=senha-mysql -d -p 3306:3306 mysql:8.0
+```
+Agora basta clonar o repositório e rodar o comando:
 
 se estiver usando npm:
 
