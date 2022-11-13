@@ -7,7 +7,15 @@ const login = async (email, password) => {
 };
 
 const createNewUser = async (name, email, password, role) => {
-  return api.post('user', { name, email, password, role }).catch((error) => {
+  return api
+    .post('user', { user: { name, email, password, role } })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
+const createNewUserWithAddress = async (user, address) => {
+  return api.post('user', { user, address }).catch((error) => {
     return error.response;
   });
 };
@@ -15,4 +23,5 @@ const createNewUser = async (name, email, password, role) => {
 export default {
   login,
   createNewUser,
+  createNewUserWithAddress,
 };

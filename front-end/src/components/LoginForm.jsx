@@ -13,8 +13,8 @@ function LoginForm() {
 
   const handleClick = async () => {
     const result = await api.login(email, password);
-    if (result.data.token) {
-      localStorage.setItem('token', result.data.token);
+    if (result.data.accessToken) {
+      localStorage.setItem('token', result.data.accessToken);
       if (result.data.role === 'client')
         navigate('./ordersclient', { replace: true });
       if (result.data.role === 'seller')
