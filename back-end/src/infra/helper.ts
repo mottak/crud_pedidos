@@ -1,5 +1,5 @@
+import vars from '$/vars'
 import { createPool, Pool } from 'mysql2/promise'
-import vars from '../vars'
 
 export const mysqlHelper = {
   client: null as unknown as Pool,
