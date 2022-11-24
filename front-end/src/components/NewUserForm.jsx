@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/userApiService';
+import UserContext from '../context/userContext/UserContext';
 import './newUserForm.css';
 
 function NewUserForm() {
@@ -13,12 +14,15 @@ function NewUserForm() {
 
   const [errorMsg, setErrorMsg] = useState('');
 
+  const { setUserName } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   const handleClick = async () => {
     const result = await api.createNewUser(name, email, password, role);
     if (result.data.accessToken) {
       localStorage.setItem('accessToken', result.data.accessToken);
+      setUserName(result.data.name);
       if (role === 'client') navigate('../productsclient', { replace: true });
       if (role === 'seller') navigate('../ordersseller', { replace: true });
     }

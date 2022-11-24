@@ -18,12 +18,10 @@ function LoginForm() {
     const result = await api.login(email, password);
     if (result.data.accessToken) {
       localStorage.setItem('accessToken', result.data.accessToken);
-      if (result.data.role === 'client') {
-        setUserName(result.data.name);
-        navigate('./productsclient', {
-          replace: true,
-        });
-      }
+      setUserName(result.data.name);
+      if (result.data.role === 'client')
+        navigate('./productsclient', { replace: true });
+
       if (result.data.role === 'seller')
         navigate('./ordersseller', { replace: true });
     }
