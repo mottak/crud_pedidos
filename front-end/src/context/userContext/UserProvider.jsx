@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import Context from './Context';
+import Context from './UserContext';
 
 function Provider({ children }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
 
   const contextValue = useMemo(
     () => ({
@@ -11,8 +12,10 @@ function Provider({ children }) {
       setEmail,
       password,
       setPassword,
+      userName,
+      setUserName,
     }),
-    [email, password],
+    [setUserName, userName],
   );
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
