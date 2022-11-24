@@ -13,12 +13,12 @@ productRoutes.post('/products', async (req, res) => {
 
 productRoutes.get('/products/:id', async (req, res) => {
   const data = await idSchema.validateAsync(req.params)
-  const result = await productFactory().readOne(req.headers.authorization, data.id)
+  const result = await productFactory().readOne(data.id)
   return res.status(200).json(result)
 })
 
 productRoutes.get('/products', async (req, res) => {
-  const result = await productFactory().read(req.headers.authorization)
+  const result = await productFactory().read()
   return res.status(200).json(result)
 })
 

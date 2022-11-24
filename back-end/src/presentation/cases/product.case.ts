@@ -26,22 +26,13 @@ export class ProductCase implements IProductCase {
     const product = await this.productsTasks.add(newProduct)
     return product
   }
-  async read(token: string | undefined): Promise<Product[]> {
-    if (!token) throw new CustomError('Please sign in.', 'BadRequest')
+  async read(): Promise<Product[]> {
 
-    const payload = await this.userAuth.verify(token)
-    if (!payload) {
-      throw new CustomError('Invalid token. Please login!', 'UnauthorizedError')
-    }
     const products = await this.productsTasks.read()
     return products
   }
-  async readOne(token: string | undefined, id: string): Promise<Product> {
-    if (!token) throw new CustomError('Please sign in', 'BadRequest')
-    const payload = await this.userAuth.verify(token)
-    if (!payload) {
-      throw new CustomError('Invalid token. Please login!', 'UnauthorizedError')
-    }
+  async readOne(id: string): Promise<Product> {
+
     const products = await this.productsTasks.readOne(id)
     return products
   }
