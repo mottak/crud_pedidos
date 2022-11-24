@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/userApiService';
+import UserContext from '../context/userContext/UserContext';
 import './loginForm.css';
 
 function LoginForm() {
@@ -9,14 +10,20 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
+  const { setUserName } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   const handleClick = async () => {
     const result = await api.login(email, password);
     if (result.data.accessToken) {
-      localStorage.setItem('token', result.data.accessToken);
-      if (result.data.role === 'client')
-        navigate('./ordersclient', { replace: true });
+      localStorage.setItem('accessToken', result.data.accessToken);
+      if (result.data.role === 'client') {
+        setUserName(result.data.name);
+        navigate('./productsclient', {
+          replace: true,
+        });
+      }
       if (result.data.role === 'seller')
         navigate('./ordersseller', { replace: true });
     }
