@@ -21,7 +21,7 @@ const createNewUserWithAddress = async (user, address) => {
 };
 
 const getClientsProducts = async () => {
-  return api.post('products').catch((error) => {
+  return api.get('products').catch((error) => {
     return error.response;
   });
 };

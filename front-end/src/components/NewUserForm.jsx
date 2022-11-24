@@ -99,7 +99,14 @@ function NewUserForm() {
             Vendedor
           </label>
         </div>
-
+        {/* <h6>Que tal já salvar seu endereço de entrega?</h6>
+        <button className="btn btn-secondary" type="button">
+          Cadastrar endereço
+        </button>
+        <button className="btn btn-secondary" type="button">
+          Mais tarde
+        </button>
+  */}
         <button
           className="btn btn-secondary"
           type="button"
