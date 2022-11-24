@@ -17,9 +17,9 @@ function NewUserForm() {
 
   const handleClick = async () => {
     const result = await api.createNewUser(name, email, password, role);
-    if (result.data.token) {
-      localStorage.setItem('token', result.data.token);
-      if (role === 'client') navigate('../ordersclient', { replace: true });
+    if (result.data.accessToken) {
+      localStorage.setItem('accessToken', result.data.accessToken);
+      if (role === 'client') navigate('../productsclient', { replace: true });
       if (role === 'seller') navigate('../ordersseller', { replace: true });
     }
     setErrorMsg(result.data.message);
