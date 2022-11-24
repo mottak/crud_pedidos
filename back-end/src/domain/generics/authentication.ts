@@ -5,5 +5,5 @@ export type Authentication = {
   expiresIn: number
 }
 
-export type LoginAutentication = Authentication & { role: User['role'] }
+export type LoginAutentication = Authentication & { role: User['role'], name: User['name'] }
 

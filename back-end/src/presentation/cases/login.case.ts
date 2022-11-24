@@ -19,8 +19,8 @@ export class LoginCase implements ILoginCase {
       email,
       role } = user
     const token = await this.userAuth.auth({ id, name, email, role })
-    const result = { ...token, role }
-    console.log('result', result)
+    const result = { ...token, role, name }
+
     return result
   }
 }

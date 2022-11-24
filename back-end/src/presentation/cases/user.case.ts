@@ -19,7 +19,7 @@ export class UserCase implements IUserCase {
       email,
       role } = newUser
     const token = await this.userAuth.auth({ id, name, email, role })
-    const result = { ...token, role }
+    const result = { ...token, role, name }
     return result
 
   }
