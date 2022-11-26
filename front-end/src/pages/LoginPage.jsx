@@ -1,21 +1,19 @@
-import { Link } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
-import './Pages.css';
+import Footer from '../components/Footer';
+import './LoginPage.css';
 
 function Login() {
   return (
-    <main className="loginContainer">
-      <img
-        src="../../public/orange-shopcart.jpeg"
-        alt="Desenho de carrinho de compras cor laranjada, com legumes dentro"
-      />
-      <LoginForm />
-      <h6>Ainda não tem cadastro?</h6>
-      <Link to="/register">
-        <button type="button" className="btn btn-secondary btn-lg">
-          Criar Cadastro
-        </button>
-      </Link>
+    <main className="main-content  mt-0">
+      <div className="container my-auto">
+        <div className="row">
+          <div className="col-lg-4 col-md-8 col-12 mx-auto">
+            <div className="card z-index-0 fadeIn3 fadeInBottom" />
+            <LoginForm />
+          </div>
+        </div>
+      </div>
+      <Footer />
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import NewUserForm from '../components/NewUserForm';
-import './Pages.css';
+// import './Pages.css';
 
 function Register() {
   return (

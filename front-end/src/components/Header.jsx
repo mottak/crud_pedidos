@@ -14,18 +14,20 @@ function Header({ title }) {
     navigate('../', { replace: true });
   };
   return (
-    <div>
+    <div className="header-container">
       <h3>{title}</h3>
-      <h6>{`Bem vindo ${user.userName}`}</h6>
-      <button
-        className="btn btn-secondary"
-        type="button"
-        onClick={() => {
-          handleClick();
-        }}
-      >
-        sair
-      </button>
+      <div className="header-container-secondary">
+        <h6>{`Bem vindo ${user.userName}`}</h6>
+        <button
+          className="btn btn-default"
+          type="button"
+          onClick={() => {
+            handleClick();
+          }}
+        >
+          sair
+        </button>
+      </div>
     </div>
   );
 }
