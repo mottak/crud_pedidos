@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import ProductCard from '../../components/Products/ProductCard';
 import api from '../../services/userApiService';
-import './ProductClientPage.css';
 
 function ClientProducts() {
   const [products, setProducts] = useState([]);

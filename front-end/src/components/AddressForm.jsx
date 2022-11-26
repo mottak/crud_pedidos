@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/userApiService';
-import './newUserForm.css';
 
 function AddressForm() {
   const [disable, setDisable] = useState(true);
@@ -27,8 +26,10 @@ function AddressForm() {
     });
     if (result.data.token) {
       localStorage.setItem('token', result.data.token);
-      if (role === 'client') navigate('../ordersclient', { replace: true });
-      if (role === 'seller') navigate('../ordersseller', { replace: true });
+      if (result.data.role === 'client')
+        navigate('../ordersclient', { replace: true });
+      if (result.data.role === 'seller')
+        navigate('../ordersseller', { replace: true });
     }
     setErrorMsg(result.data.message);
   };

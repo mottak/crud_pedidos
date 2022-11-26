@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './Header.css';
-
 function Header({ title }) {
   const userStorage = localStorage.getItem('user');
   const user = JSON.parse(userStorage);

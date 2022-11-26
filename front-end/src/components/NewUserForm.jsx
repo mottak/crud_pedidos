@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/userApiService';
-import './newUserForm.css';
 
 function NewUserForm() {
   const [disable, setDisable] = useState(true);
