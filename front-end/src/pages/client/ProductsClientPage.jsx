@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import Header from '../../components/Header';
+import Header from '../../components/Header';
 import ProductCard from '../../components/Products/ProductCard';
 import api from '../../services/userApiService';
 
@@ -15,12 +15,12 @@ function ClientProducts() {
     getProducts();
   }, []);
   return (
-    <main>
-      {/* <Header title="Mercadão" /> */}
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+    <>
+      <Header title="Mercadão" />
+      {products.map((product, index) => (
+        <ProductCard key={product.id} index={index} product={product} />
       ))}
-    </main>
+    </>
   );
 }
 

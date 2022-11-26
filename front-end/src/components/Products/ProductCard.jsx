@@ -1,11 +1,17 @@
 import React from 'react';
+import './ProductCard.css';
 
-function ProductCard({ name, photo, price }) {
+function ProductCard({ product }) {
+  const formatedPrice = product.price.replace('.', ',');
   return (
     <main>
-      <img src={photo} alt="imagem do produto desse card" />
-      <h6>{name}</h6>
-      <h6>{price}</h6>
+      <img
+        className="product-img"
+        src={product.photo}
+        alt={`imagem do produto ${product.name}`}
+      />
+      <h6>{product.name}</h6>
+      <h6>R$ {formatedPrice}</h6>
     </main>
   );
 }
