@@ -38,7 +38,7 @@ function LoginForm() {
   }, [email, password, setEmail, setPassword]);
 
   return (
-    <div className="page-header align-items-start min-vh-100">
+    <div className="page-header min-vh-100">
       <div className="container my-auto">
         <div className="row">
           <div className="col-lg-4 col-md-8 col-12 mx-auto">
