@@ -1,17 +1,20 @@
 import LoginForm from '../components/LoginForm';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function Login() {
   return (
-    <main className="main-content  mt-0">
-      <div className="container my-auto">
+    <main className="bg-gray-200">
+      <div className="container position-sticky z-index-sticky top-0">
         <div className="row">
-          <div className="col-lg-4 col-md-8 col-12 mx-auto">
-            <div className="card z-index-0 fadeIn3 fadeInBottom" />
-            <LoginForm />
+          <div className="col-12">
+            <Header />
           </div>
         </div>
       </div>
+
+      <LoginForm />
+
       <Footer />
     </main>
   );

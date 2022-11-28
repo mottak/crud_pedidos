@@ -7,7 +7,7 @@ function Footer() {
         <div className="row align-items-center justify-content-lg-between">
           <div className="col-12 col-md-6 my-auto">
             <div className="copyright text-center text-sm text-white text-lg-start">
-              Feito com React, css, typescript e carinho 💌
+              Feito com React, material-dashboard, typescript e carinho 💌
             </div>
           </div>
           <div className="col-12 col-md-6" />
