@@ -6,7 +6,7 @@ function Footer() {
       <div className="container">
         <div className="row align-items-center justify-content-lg-between">
           <div className="col-12 col-md-6 my-auto">
-            <div className="copyright text-center text-sm text-white text-lg-start">
+            <div className="copyright text-center text-sm text-lg-start">
               Feito com React, material-dashboard, typescript e carinho 💌
             </div>
           </div>
