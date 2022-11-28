@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 function Register() {
   return (
-    <main>
+    <main className="bg-gray-200">
       <div className="container position-sticky z-index-sticky top-0">
         <div className="row">
           <div className="col-12">
