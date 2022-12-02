@@ -108,8 +108,7 @@ O cliente tem acesso a todos os produtos que estão na plataforma, mesmo que de 
 
 A rota utilizada deve ser: **GET /pedidos/products**
 
-Não é necessário passar nenhuma informação.
-O retorno será:
+Não é necessário passar nenhuma informação. Nem mesmo ter feito o login, ou seja, não é necessario ter um _accessToken_. O retorno será:
 
 ```json
 [
