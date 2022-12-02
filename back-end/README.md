@@ -24,16 +24,10 @@ se tiver usando yarn:
   yarn install
 ```
 
-Depois de instalar as dependências, crie o banco de dados com o comando:
+Depois de instalar as dependências, crie e popule o banco de dados com o comando:
 
 ```bash
-  CRIAR SCRIPT
-```
-
-Depois se você quiser basta popular esse banco com:
-
-```bash
-  CRIAR SCRIPT
+  npm run migration
 ```
 
 ## Rotas de um cliente
