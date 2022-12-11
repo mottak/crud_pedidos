@@ -24,16 +24,10 @@ se tiver usando yarn:
   yarn install
 ```
 
-Depois de instalar as dependências, crie o banco de dados com o comando:
+Depois de instalar as dependências, crie e popule o banco de dados com o comando:
 
 ```bash
-  CRIAR SCRIPT
-```
-
-Depois se você quiser basta popular esse banco com:
-
-```bash
-  CRIAR SCRIPT
+  npm run migration
 ```
 
 ## Rotas de um cliente
@@ -114,8 +108,7 @@ O cliente tem acesso a todos os produtos que estão na plataforma, mesmo que de 
 
 A rota utilizada deve ser: **GET /pedidos/products**
 
-Não é necessário passar nenhuma informação.
-O retorno será:
+Não é necessário passar nenhuma informação. Nem mesmo ter feito o login, ou seja, não é necessario ter um _accessToken_. O retorno será:
 
 ```json
 [

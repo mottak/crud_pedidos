@@ -75,7 +75,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-11T21:37:44.551Z",
-    "modified": "2022-11-06T18:30:09.905Z",
+    "modified": "2022-11-13T20:42:42.730Z",
     "headers": [],
     "params": [],
     "body": {
@@ -90,15 +90,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/pedidos/orders",
-    "url": "http://localhost:3001/pedidos/products/53ee23dc-d502-456c-a93f-1e4b6646bd41",
-    "method": "DELETE",
+    "url": "http://localhost:3001/pedidos/products",
+    "method": "GET",
     "sortNum": 0,
     "created": "2022-09-27T14:39:13.104Z",
-    "modified": "2022-11-05T18:00:17.527Z",
+    "modified": "2022-11-24T19:29:04.384Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhYjIwNDNiLWZiY2EtNDVjMC05NTIxLTQ2ODdlOWE3NTEzZiIsIm5hbWUiOiJNYXJpYSBkbyBiYWlycm8iLCJlbWFpbCI6Im1hcmlhZG9iYWlycm9AZW1haWwuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY2NzY3MDk2MH0.qqZ6EH98781r-EptB9lDPr3Zyolj6ePTsfNcB7R9Cnc"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhYjIwNDNiLWZiY2EtNDVjMC05NTIxLTQ2ODdlOWE3NTEzZiIsIm5hbWUiOiJNYXJpYSBkbyBiYWlycm8iLCJlbWFpbCI6Im1hcmlhZG9iYWlycm9AZW1haWwuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY2NzY3MDk2MH0.qqZ6EH98781r-EptB9lDPr3Zyolj6ePTsfNcB7R9Cnc",
+        "isDisabled": true
       }
     ],
     "params": [],

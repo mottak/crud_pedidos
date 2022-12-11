@@ -4,7 +4,7 @@ import { Router } from 'express'
 
 const userRoutes = Router()
 
-userRoutes.post('/register', async (req, res) => {
+userRoutes.post('/user', async (req, res) => {
   const dataUser = await userSchema.validateAsync(req.body.user)
   const resultUserRegister = await registerUserFactory().add(dataUser)
 

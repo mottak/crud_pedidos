@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/index.ts",
-    "migration": "ts-node db/utils.ts",
+    "migration": "ts-node -e \"require('./db/util').runSql()\"",
     "lint": "eslint src -c .eslintrc.json --ext js,jsx"
   },
   "repository": {
